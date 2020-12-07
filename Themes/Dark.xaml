@@ -34,7 +34,6 @@
                                 Height="20"
                                 Background="{DynamicResource BrushBackgroundDark}"
                                 BorderBrush="{StaticResource BrushBorderLight}"
-                                BorderThickness="0"
                                 CornerRadius="10"
                                 UseLayoutRounding="True">
 
