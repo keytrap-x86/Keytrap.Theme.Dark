@@ -10,7 +10,7 @@
     <Button.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Keytrap.Theme;component/Themes/Dark.xaml" />
+                <ResourceDictionary Source="/Keytrap.Theme;component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Button.Resources>
