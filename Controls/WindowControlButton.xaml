@@ -16,7 +16,7 @@
     </Button.Resources>
     <Button.Style>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource BrushBackground}" />
+            <Setter Property="Background" Value="{StaticResource BrushBlack}" />
             <Setter Property="OverridesDefaultStyle" Value="True" />
             <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
             <Setter Property="BorderBrush" Value="Transparent" />

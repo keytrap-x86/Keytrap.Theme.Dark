@@ -50,16 +50,5 @@ namespace Keytrap.Theme.Controls
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(DarkWindow), new FrameworkPropertyMetadata(typeof(DarkWindow)));
         }
-
-        public event EventHandler Blinked;
-
-        private void OnBlinked()
-        {
-            EventHandler eh = Blinked;
-            if (eh != null)
-            {
-                eh(this, new EventArgs());
-            }
-        }
     }
 }
