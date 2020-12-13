@@ -387,25 +387,18 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" />
                         </Border>
-
                     </Grid>
-                   
 
                     <ControlTemplate.Triggers>
-                        <!--<Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
-                        </Trigger>-->
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="MainBorder" Property="Background" Value="{StaticResource BrushBlackDark}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
                             <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -444,17 +437,12 @@
                     </Border>
 
                     <ControlTemplate.Triggers>
-                        <!--<Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
-                        </Trigger>-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
                             <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -493,14 +481,9 @@
                     </Border>
 
                     <ControlTemplate.Triggers>
-                        <!--<Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
                         </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
-                        </Trigger>-->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
                             <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
@@ -549,14 +532,9 @@
 
         </Grid>
         <ControlTemplate.Triggers>
-            <!--<Trigger Property="IsFocused" Value="True">
-                <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.3"/>
             </Trigger>
-            <Trigger Property="IsKeyboardFocused" Value="True">
-                <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
-                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
-            </Trigger>-->
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
                 <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
@@ -641,6 +619,9 @@
                     </Grid>
                     <ControlTemplate.Triggers>
 
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Trigger>
                         <Trigger Property="HasItems" Value="false">
                             <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95" />
                         </Trigger>
@@ -685,6 +666,9 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="#888888" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
