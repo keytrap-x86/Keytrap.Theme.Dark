@@ -73,7 +73,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource BrushBorderLight}" />
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="AllowsTransparency" Value="True" />
-        <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
+        <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
         <Setter Property="FontFamily" Value="{StaticResource Whitney}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -442,12 +442,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
-
-
-    </Style>
+   
 
     <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
         <Setter Property="SnapsToDevicePixels" Value="true" />
