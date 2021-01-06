@@ -84,15 +84,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\whitneybold.otf" />
-    <Resource Include="Fonts\whitneybook.otf" />
-    <Resource Include="Fonts\whitneybookitalic.otf" />
-    <Resource Include="Fonts\whitneylight.otf" />
-    <Resource Include="Fonts\whitneylightitalic.otf" />
-    <Resource Include="Fonts\whitneymedium.otf" />
-    <Resource Include="Fonts\whitneymediumitalic.otf" />
-    <Resource Include="Fonts\whitneysemibold.otf" />
-    <Resource Include="Fonts\WhitneySemiboldItalic.otf" />
+    <EmbeddedResource Include="Fonts\whitneybold.otf" />
+    <EmbeddedResource Include="Fonts\whitneybook.otf" />
+    <EmbeddedResource Include="Fonts\whitneybookitalic.otf" />
+    <EmbeddedResource Include="Fonts\whitneylight.otf" />
+    <EmbeddedResource Include="Fonts\whitneylightitalic.otf" />
+    <EmbeddedResource Include="Fonts\whitneymedium.otf" />
+    <EmbeddedResource Include="Fonts\whitneymediumitalic.otf" />
+    <EmbeddedResource Include="Fonts\whitneysemibold.otf" />
+    <EmbeddedResource Include="Fonts\WhitneySemiboldItalic.otf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

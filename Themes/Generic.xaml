@@ -39,26 +39,34 @@
 
 
     <Style TargetType="{x:Type TabControl}">
-        <Setter Property="Background" Value="{StaticResource BrushBlackDark}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BrushBorderLight}"/>
-        
+        <Setter Property="Background" Value="{StaticResource BrushBlackDark}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BrushBorderLight}" />
+
     </Style>
 
     <Style TargetType="TabItem">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
-                    <Border x:Name="Border" CornerRadius="3" Margin="0,5,3,10" Padding="10,6,10,6">
-                        <TextBlock x:Name="Txt" Text="{TemplateBinding Header}" Foreground="{StaticResource BrushForeground}" FontWeight="DemiBold" />
+                    <Border
+                        x:Name="Border"
+                        Margin="0,5,3,10"
+                        Padding="10,6,10,6"
+                        CornerRadius="3">
+                        <TextBlock
+                            x:Name="Txt"
+                            FontWeight="DemiBold"
+                            Foreground="{StaticResource BrushForeground}"
+                            Text="{TemplateBinding Header}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BrushBlackLight}"/>
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BrushBlackLight}" />
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True" >
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BrushBlackLight}"/>
-                            <Setter TargetName="Txt" Property="TextDecorations" Value="Underline"/>
-                            <Setter TargetName="Border" Property="Cursor" Value="Hand"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BrushBlackLight}" />
+                            <Setter TargetName="Txt" Property="TextDecorations" Value="Underline" />
+                            <Setter TargetName="Border" Property="Cursor" Value="Hand" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -73,7 +81,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource BrushBorderLight}" />
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="AllowsTransparency" Value="True" />
-        <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource Whitney}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -160,11 +168,16 @@
     </Style>
 
     <Style x:Key="RoundedItem" TargetType="ListBoxItem">
-        <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border Name="ItemBorder" Height="32" CornerRadius="3" Margin="2" Background="{StaticResource BrushBlack}" >
+                    <Border
+                        Name="ItemBorder"
+                        Height="32"
+                        Margin="2"
+                        Background="{StaticResource BrushBlack}"
+                        CornerRadius="3">
                         <ContentPresenter Margin="8,3,8,3" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
@@ -176,7 +189,7 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource  BrushBlackLight}" />
+                            <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource BrushBlackLight}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -185,15 +198,15 @@
     </Style>
 
     <Style TargetType="{x:Type ListBox}">
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Background" Value="{StaticResource BrushBlackDark}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource RoundedItem }"/>
-        
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{StaticResource BrushBlackDark}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource RoundedItem}" />
+
     </Style>
 
-    
+
     <Style TargetType="{x:Type ToggleButton}">
         <Setter Property="Template">
             <Setter.Value>
@@ -281,7 +294,7 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
-        <Setter Property="MaxWidth" Value="350"/>
+        <Setter Property="MaxWidth" Value="350" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToolTip">
@@ -325,7 +338,7 @@
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CheckBox}">
@@ -386,7 +399,7 @@
                                     <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />-->
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.3"/>
+                            <Setter Property="Opacity" Value="0.3" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -405,11 +418,11 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
                         <Border
-                        x:Name="FocusBorder"
-                        Margin="1"
-                        BorderBrush="Transparent"
-                        BorderThickness="2"
-                        CornerRadius="5"/>
+                            x:Name="FocusBorder"
+                            Margin="1"
+                            BorderBrush="Transparent"
+                            BorderThickness="2"
+                            CornerRadius="5" />
                         <Border
                             x:Name="MainBorder"
                             Margin="3"
@@ -434,7 +447,7 @@
                             <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.3"/>
+                            <Setter Property="Opacity" Value="0.3" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -442,13 +455,13 @@
         </Setter>
     </Style>
 
-   
+
 
     <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBoxBase}">
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -481,7 +494,7 @@
                             <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BrushFocusAccent}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.3"/>
+                            <Setter Property="Opacity" Value="0.3" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -521,7 +534,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.3"/>
+                            <Setter Property="Opacity" Value="0.3" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
@@ -572,7 +585,7 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value="0.3"/>
+                <Setter Property="Opacity" Value="0.3" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="FocusBorder" Property="BorderBrush" Value="{StaticResource BrushFocus}" />
@@ -659,7 +672,7 @@
                     <ControlTemplate.Triggers>
 
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.3"/>
+                            <Setter Property="Opacity" Value="0.3" />
                         </Trigger>
                         <Trigger Property="HasItems" Value="false">
                             <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95" />
@@ -707,7 +720,7 @@
                             <Setter Property="Foreground" Value="#888888" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.3"/>
+                            <Setter Property="Opacity" Value="0.3" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
