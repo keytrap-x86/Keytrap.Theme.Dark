@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Media;
 
 
@@ -10,6 +11,7 @@ namespace Keytrap.Theme.Controls
     /// </summary>
     public partial class WindowControlButton : INotifyPropertyChanged
     {
+        private Brush _focusBrush;
         public Brush FocusBrush
         {
             get => _focusBrush;
@@ -22,19 +24,19 @@ namespace Keytrap.Theme.Controls
             }
         }
 
-        private string _text;
-        private Brush _focusBrush;
+        
+        
+
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            "Text", typeof(string), typeof(WindowControlButton), new PropertyMetadata(default(string)));
 
         public string Text
         {
-            get => _text;
-            set
-            {
-                _text = value;
-                OnPropertyChanged();
-            }
+            get => (string) GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
+       
         public WindowControlButton()
         {
             InitializeComponent();

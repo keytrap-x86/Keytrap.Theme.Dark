@@ -50,6 +50,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\TextSeparator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\WindowControlButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -61,6 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\DarkWindow.cs" />
+    <Compile Include="Controls\TextSeparator.xaml.cs">
+      <DependentUpon>TextSeparator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Watermark\WatermarkAdorner.cs" />
+    <Compile Include="Controls\Watermark\WatermarkService.cs" />
     <Compile Include="Controls\WindowControlButton.xaml.cs">
       <DependentUpon>WindowControlButton.xaml</DependentUpon>
     </Compile>
@@ -84,19 +93,38 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fonts\whitneybold.otf" />
-    <EmbeddedResource Include="Fonts\whitneybook.otf" />
-    <EmbeddedResource Include="Fonts\whitneybookitalic.otf" />
-    <EmbeddedResource Include="Fonts\whitneylight.otf" />
-    <EmbeddedResource Include="Fonts\whitneylightitalic.otf" />
-    <EmbeddedResource Include="Fonts\whitneymedium.otf" />
-    <EmbeddedResource Include="Fonts\whitneymediumitalic.otf" />
-    <EmbeddedResource Include="Fonts\whitneysemibold.otf" />
-    <EmbeddedResource Include="Fonts\WhitneySemiboldItalic.otf" />
+    <Resource Include="Fonts\whitneybold.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\whitneybook.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\whitneybookitalic.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\whitneylight.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\whitneylightitalic.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\whitneymedium.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\whitneymediumitalic.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\whitneysemibold.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\WhitneySemiboldItalic.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

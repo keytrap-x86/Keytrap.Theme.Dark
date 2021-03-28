@@ -7,13 +7,6 @@
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
     TextOptions.TextFormattingMode="Display"
     TextOptions.TextRenderingMode="Aliased">
-    <Button.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Keytrap.Theme;component/Themes/Generic.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Button.Resources>
     <Button.Style>
         <Style TargetType="Button">
             <Setter Property="Background" Value="{StaticResource BrushBlack}" />
