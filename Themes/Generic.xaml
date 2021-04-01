@@ -506,7 +506,8 @@
                             Margin="0"
                             BorderBrush="Transparent"
                             BorderThickness="2"
-                            CornerRadius="3" UseLayoutRounding="True" >
+                            CornerRadius="3"
+                            UseLayoutRounding="True">
                             <Border
                                 x:Name="MainBorder"
                                 Background="{StaticResource BrushBlackLight}"
@@ -520,7 +521,7 @@
                                     VerticalAlignment="Stretch" />
                             </Border>
                         </Border>
-                        
+
                     </Grid>
 
                     <ControlTemplate.Triggers>
@@ -688,14 +689,12 @@
             Focusable="False" />
     </ControlTemplate>
 
-
     <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}">
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
-
         <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -756,7 +755,6 @@
                         </Popup>
                     </Grid>
                     <ControlTemplate.Triggers>
-
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.3" />
                         </Trigger>
@@ -782,7 +780,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers />
     </Style>
 
     <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
