@@ -180,7 +180,7 @@
                                 MouseDown="GrdDragForm_MouseDown">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Image
@@ -194,7 +194,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Foreground="{StaticResource BrushForeground}"
-                                    Text="{TemplateBinding Title}" />
+                                    Text="{TemplateBinding Title}" TextTrimming="CharacterEllipsis" />
                                 <StackPanel
                                     Grid.Column="2"
                                     HorizontalAlignment="Right"
@@ -261,41 +261,45 @@
 
     </Style>
 
-    <Style x:Key="RoundedItem" TargetType="ListBoxItem">
-        <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListBoxItem">
-                    <Border
-                        Name="ItemBorder"
-                        Height="32"
-                        Margin="2"
-                        Background="{StaticResource BrushBlack}"
-                        CornerRadius="3">
-                        <ContentPresenter Margin="8,3,8,3" VerticalAlignment="Center" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource BrushBlackLight}" />
-                        </Trigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True" />
-                                <Condition Property="IsSelected" Value="False" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource BrushBlackLight}" />
-                        </MultiTrigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+
 
     <Style TargetType="{x:Type ListBox}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="{StaticResource BrushBlackDark}" />
-        <Setter Property="ItemContainerStyle" Value="{StaticResource RoundedItem}" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Foreground" Value="{StaticResource BrushForeground}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border
+                                    Name="ItemBorder"
+                                    Height="32"
+                                    Margin="2"
+                                    Background="{StaticResource BrushBlack}"
+                                    CornerRadius="3">
+                                    <ContentPresenter Margin="8,3,8,3" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource BrushBlackLight}" />
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsMouseOver" Value="True" />
+                                            <Condition Property="IsSelected" Value="False" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource BrushBlackLight}" />
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style TargetType="{x:Type ToggleButton}">
@@ -518,7 +522,7 @@
                                 <ContentPresenter
                                     Margin="8,5,8,5"
                                     HorizontalAlignment="Center"
-                                    VerticalAlignment="Stretch" />
+                                    VerticalAlignment="Center" />
                             </Border>
                         </Border>
 
