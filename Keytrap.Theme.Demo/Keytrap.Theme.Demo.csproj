@@ -95,7 +95,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Keytrap.Theme\Keytrap.Theme.csproj">
+    <ProjectReference Include="..\Keytrap.Theme.csproj">
       <Project>{83104783-a098-4d9c-8896-1ff694c97abf}</Project>
       <Name>Keytrap.Theme</Name>
     </ProjectReference>

@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\DarkWindow.cs" />
+    <Compile Include="Controls\Extensions\TextBoxExtensions.cs" />
     <Compile Include="Controls\TextSeparator.xaml.cs">
       <DependentUpon>TextSeparator.xaml</DependentUpon>
     </Compile>
