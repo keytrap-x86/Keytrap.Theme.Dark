@@ -1,6 +1,6 @@
 ﻿## Keytrap Theme "Dark"
 
-This is a theme inspired by Disocrd & JetBrain's Rider
+This is a theme inspired by Discord & JetBrain's Rider
 
 ![](https://github.com/varKeytrap/Keytrap.Theme/blob/master/Keytrap.Theme.Demo/Medias/kt_d.png)
 
