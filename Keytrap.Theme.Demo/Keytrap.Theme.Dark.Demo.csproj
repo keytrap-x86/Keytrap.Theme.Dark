@@ -107,7 +107,7 @@
     <Resource Include="Medias\kt_d.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Medias\demo.PNG" />
+    <Resource Include="Medias\demo_screenshot.PNG" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="kt_d.ico" />
