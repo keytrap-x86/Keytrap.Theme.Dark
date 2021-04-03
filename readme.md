@@ -6,6 +6,12 @@ This is a theme inspired by Disocrd & JetBrain's Rider
 
 ![](https://github.com/varKeytrap/Keytrap.Theme/blob/master/Keytrap.Theme.Demo/Medias/demo_screenshot.PNG)
 
+### Installation
+
+```Powershell
+Install-Package Keytrap.Theme.Dark
+```
+
 ### Usage
 
 - *App.xaml* should look like this :
