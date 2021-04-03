@@ -7,7 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace Keytrap.Theme.Controls.WaterMark
+namespace Keytrap.Theme.Dark.Controls.WaterMark
 {
     /// <summary>
     ///     Class that provides the Watermark attached property

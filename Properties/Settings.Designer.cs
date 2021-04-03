@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Keytrap.Theme.Properties {
+namespace Keytrap.Theme.Dark.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

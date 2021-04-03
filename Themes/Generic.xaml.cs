@@ -1,11 +1,13 @@
-﻿using Keytrap.Theme.Controls;
+﻿
+using Keytrap.Theme.Dark.Controls;
 
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+
 // ReSharper disable AssignNullToNotNullAttribute
 
-namespace Keytrap.Theme.Themes
+namespace Keytrap.Theme.Dark.Themes
 {
     public partial class Generic
     {

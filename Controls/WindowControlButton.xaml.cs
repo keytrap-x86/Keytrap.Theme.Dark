@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Media;
 
 
-namespace Keytrap.Theme.Controls
+namespace Keytrap.Theme.Dark.Controls
 {
     /// <summary>
     /// Interaction logic for WindowControlButton.xaml

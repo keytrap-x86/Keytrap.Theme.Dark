@@ -1,16 +1,17 @@
 ﻿<kt:DarkWindow
     x:Class="Keytrap.Theme.Demo.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:waterMark="clr-namespace:Keytrap.Theme.Controls.WaterMark;assembly=Keytrap.Theme"
-    xmlns:kt="clr-namespace:Keytrap.Theme.Controls;assembly=Keytrap.Theme"
+    xmlns:kt="clr-namespace:Keytrap.Theme.Dark.Controls;assembly=Keytrap.Theme.Dark"
+    xmlns:waterMark="clr-namespace:Keytrap.Theme.Dark.Controls.WaterMark;assembly=Keytrap.Theme.Dark"
     Title="Keytrap's Dark Theme for WPF"
     Width="970"
     Height="562"
+    Icon="Medias/kt_d.png"
     Style="{StaticResource DarkWindowStyle}"
-    mc:Ignorable="d" Icon="Medias/kt_d.png">
+    mc:Ignorable="d">
     <StackPanel Margin="15">
         <TextBlock
             HorizontalAlignment="Left"
@@ -22,9 +23,9 @@
             Width="230"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="ComboBox" waterMark:WatermarkService.Watermark="ComboBox with watermark !" >
-        </ComboBox> 
-       
+            waterMark:WatermarkService.Watermark="ComboBox with watermark !"
+            Text="ComboBox" />
+
 
         <GroupBox
             Width="100"
@@ -37,8 +38,9 @@
 
         <kt:TextSeparator
             Width="354"
+            Margin="0,15,0,15"
             HorizontalAlignment="Left"
-            Header="Text Separator" Margin="0,15,0,15" />
+            Header="Text Separator" />
 
         <ToggleButton Content="Toggle button" />
 
@@ -69,7 +71,7 @@
                 Width="100"
                 Content="Button"
                 Foreground="{DynamicResource BrushGreen}" />
-            <TextBox Width="250" waterMark:WatermarkService.Watermark="Textbox with watermark !"/>
+            <TextBox Width="250" waterMark:WatermarkService.Watermark="Textbox with watermark !" />
 
             <Button
                 Width="100"

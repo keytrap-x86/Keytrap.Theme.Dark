@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Keytrap.Theme.Controls
+namespace Keytrap.Theme.Dark.Controls
 {
     /// <summary>
     /// Logique d'interaction pour TextSeparator.xaml
