@@ -26,7 +26,7 @@ Install-Package Keytrap.Theme.Dark
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Keytrap.Theme;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Keytrap.Theme.Dark;component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
