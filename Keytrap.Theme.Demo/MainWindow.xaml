@@ -1,19 +1,17 @@
 ﻿<kt:DarkWindow
     x:Class="Keytrap.Theme.Demo.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:kt="clr-namespace:Keytrap.Theme.Controls;assembly=Keytrap.Theme"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ext="clr-namespace:Keytrap.Theme.Controls.Extensions;assembly=Keytrap.Theme"
     xmlns:waterMark="clr-namespace:Keytrap.Theme.Controls.WaterMark;assembly=Keytrap.Theme"
+    xmlns:kt="clr-namespace:Keytrap.Theme.Controls;assembly=Keytrap.Theme"
     Title="Keytrap's Dark Theme for WPF"
     Width="970"
     Height="562"
     Style="{StaticResource DarkWindowStyle}"
     mc:Ignorable="d" Icon="Medias/kt_d.png">
     <StackPanel Margin="15">
-
         <TextBlock
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
@@ -36,11 +34,14 @@
             BorderThickness="2"
             Foreground="{DynamicResource BrushBlue}"
             Header="GroupBox" />
+
         <kt:TextSeparator
             Width="354"
             HorizontalAlignment="Left"
-            Header="Text Separator" />
+            Header="Text Separator" Margin="0,15,0,15" />
+
         <ToggleButton Content="Toggle button" />
+
         <TabControl
             Width="235"
             Height="220"
@@ -58,8 +59,8 @@
                     VerticalAlignment="Top"
                     Content="CheckBox2" />
             </TabItem>
-
         </TabControl>
+
         <StackPanel
             Margin="10"
             VerticalAlignment="Bottom"
@@ -69,7 +70,6 @@
                 Content="Button"
                 Foreground="{DynamicResource BrushGreen}" />
             <TextBox Width="250" waterMark:WatermarkService.Watermark="Textbox with watermark !"/>
-
 
             <Button
                 Width="100"
