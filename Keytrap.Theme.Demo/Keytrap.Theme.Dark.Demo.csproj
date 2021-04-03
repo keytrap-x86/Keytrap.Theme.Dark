@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>kt_d.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -95,14 +98,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Keytrap.Theme.csproj">
+    <ProjectReference Include="..\Keytrap.Theme.Dark.csproj">
       <Project>{83104783-a098-4d9c-8896-1ff694c97abf}</Project>
-      <Name>Keytrap.Theme</Name>
+      <Name>Keytrap.Theme.Dark</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Medias\kt_d.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Medias\demo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="kt_d.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

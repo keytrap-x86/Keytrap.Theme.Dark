@@ -7,11 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ext="clr-namespace:Keytrap.Theme.Controls.Extensions;assembly=Keytrap.Theme"
     xmlns:waterMark="clr-namespace:Keytrap.Theme.Controls.WaterMark;assembly=Keytrap.Theme"
-    Title="MainWindow"
+    Title="Keytrap's Dark Theme for WPF"
     Width="970"
     Height="562"
     Style="{StaticResource DarkWindowStyle}"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Icon="Medias/kt_d.png">
     <StackPanel Margin="15">
 
         <TextBlock
