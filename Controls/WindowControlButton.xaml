@@ -9,7 +9,7 @@
     TextOptions.TextRenderingMode="Aliased">
     <Button.Style>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
             <Setter Property="OverridesDefaultStyle" Value="True" />
             <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
             <Setter Property="BorderBrush" Value="Transparent" />

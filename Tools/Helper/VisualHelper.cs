@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 
-namespace HandyControl.Tools
+namespace Keytrap.Theme.Dark.Tools.Helper
 {
     public static class VisualHelper
     {

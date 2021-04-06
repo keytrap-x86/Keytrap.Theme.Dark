@@ -1,6 +1,7 @@
-﻿using HandyControl.Controls;
+﻿
+using Keytrap.Theme.Dark.Controls;
 
-namespace HandyControl.Data
+namespace Keytrap.Theme.Dark.Data
 {
     internal class ChangeScope : DisposableObject
     {

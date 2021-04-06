@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HandyControl.Data
+namespace Keytrap.Theme.Dark.Data
 {
     public class DisposableObject : IDisposable
     {

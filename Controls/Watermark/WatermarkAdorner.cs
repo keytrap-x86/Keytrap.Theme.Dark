@@ -38,6 +38,7 @@ namespace Keytrap.Theme.Dark.Controls.WaterMark
                 {
                     watermark = new TextBlock
                     {
+                        Style = null,
                         Text = watermark.ToString(),
                         Opacity = 0.5,
                         FontSize = textBox.FontSize,

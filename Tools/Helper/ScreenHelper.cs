@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows;
 
-namespace HandyControl.Tools
+namespace Keytrap.Theme.Dark.Tools.Helper
 {
     internal class ScreenHelper
     {
@@ -24,7 +24,7 @@ namespace HandyControl.Tools
                 delegate (IntPtr hMonitor, IntPtr hdcMonitor, ref InteropValues.RECT rect, IntPtr lpData)
                 {
                     var monitorInfo = default(InteropValues.MONITORINFO);
-                    monitorInfo.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
+                    monitorInfo.cbSize = (uint)Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
                     InteropMethods.GetMonitorInfo(hMonitor, ref monitorInfo);
                     rects.Add(monitorInfo.rcWork);
                     return true;
@@ -52,7 +52,7 @@ namespace HandyControl.Tools
             {
                 var rect = current;
                 InteropMethods.IntersectRect(out var rECT2, ref rect, ref windowRect);
-                var num2 = (long) (rECT2.Width * rECT2.Height);
+                var num2 = (long)(rECT2.Width * rECT2.Height);
                 if (num2 > num)
                 {
                     screenSubRect = rECT2;
@@ -66,8 +66,8 @@ namespace HandyControl.Tools
         {
             var intPtr = InteropMethods.MonitorFromPoint(new InteropValues.POINT
             {
-                X = (int) point.X,
-                Y = (int) point.Y
+                X = (int)point.X,
+                Y = (int)point.Y
             }, 2);
 
             monitorRect = new Rect(0.0, 0.0, 0.0, 0.0);
@@ -76,7 +76,7 @@ namespace HandyControl.Tools
             if (intPtr != IntPtr.Zero)
             {
                 InteropValues.MONITORINFO monitorInfo = default;
-                monitorInfo.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
+                monitorInfo.cbSize = (uint)Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
                 InteropMethods.GetMonitorInfo(intPtr, ref monitorInfo);
                 monitorRect = new Rect(monitorInfo.rcMonitor.Position, monitorInfo.rcMonitor.Size);
                 workAreaRect = new Rect(monitorInfo.rcWork.Position, monitorInfo.rcWork.Size);

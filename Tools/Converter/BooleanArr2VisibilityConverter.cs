@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 
-namespace HandyControl.Tools.Converter
+namespace Keytrap.Theme.Dark.Tools.Converter
 {
     public class BooleanArr2VisibilityConverter : IMultiValueConverter
     {

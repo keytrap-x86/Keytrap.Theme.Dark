@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace HandyControl.Interactivity
+namespace Keytrap.Theme.Dark.Interactivity
 {
     public class OpenLinkCommand : ICommand
     {

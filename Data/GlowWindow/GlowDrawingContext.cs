@@ -2,7 +2,7 @@
 
 using System;
 
-namespace HandyControl.Data
+namespace Keytrap.Theme.Dark.Data
 {
     internal class GlowDrawingContext : DisposableObject
     {

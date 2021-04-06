@@ -1,5 +1,4 @@
-﻿using HandyControl.Tools.Helper;
-
+﻿
 using Keytrap.Theme.Dark.Tools.Extension;
 using Keytrap.Theme.Dark.Tools.Interop;
 
@@ -12,23 +11,19 @@ using System.Security;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace HandyControl.Tools
+namespace Keytrap.Theme.Dark.Tools.Helper
 {
     public static class WindowHelper
     {
-        /// <summary>
-        ///     获取当前应用中处于激活的一个窗口
-        /// </summary>
-        /// <returns></returns>
         public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
 
-        private static readonly BitArray _cacheValid = new BitArray((int) InteropValues.CacheSlot.NumSlots);
+        private static readonly BitArray _cacheValid = new((int) InteropValues.CacheSlot.NumSlots);
 
         private static bool _setDpiX = true;
 
         private static bool _dpiInitialized;
 
-        private static readonly object _dpiLock = new object();
+        private static readonly object _dpiLock = new();
 
         private static int _dpi;
 
@@ -156,36 +151,22 @@ namespace HandyControl.Tools
 
         public static HwndSource GetHwndSource(this Window window) => HwndSource.FromHwnd(window.GetHandle());
 
-        /// <summary>
-        ///     让窗口激活作为前台最上层窗口
-        /// </summary>
-        /// <param name="window"></param>
+       
         public static void SetWindowToForeground(Window window)
         {
-            // [WPF 让窗口激活作为前台最上层窗口的方法 - lindexi - 博客园](https://www.cnblogs.com/lindexi/p/12749671.html)
+
             var interopHelper = new WindowInteropHelper(window);
             var thisWindowThreadId = InteropMethods.GetWindowThreadProcessId(interopHelper.Handle, out _);
             var currentForegroundWindow = InteropMethods.GetForegroundWindow();
             var currentForegroundWindowThreadId = InteropMethods.GetWindowThreadProcessId(currentForegroundWindow, out _);
 
-            // [c# - Bring a window to the front in WPF - Stack Overflow](https://stackoverflow.com/questions/257587/bring-a-window-to-the-front-in-wpf )
-            // [SetForegroundWindow的正确用法 - 子坞 - 博客园](https://www.cnblogs.com/ziwuge/archive/2012/01/06/2315342.html )
-            /*
-               　　1.得到窗口句柄FindWindow 
-            　　　　2.切换键盘输入焦点AttachThreadInput 
-            　　　　3.显示窗口ShowWindow(有些窗口被最小化/隐藏了) 
-            　　　　4.更改窗口的Z Order，SetWindowPos使之最上，为了不影响后续窗口的Z Order,改完之后，再还原 
-            　　　　5.最后SetForegroundWindow 
-             */
-
             InteropMethods.AttachThreadInput(currentForegroundWindowThreadId, thisWindowThreadId, true);
 
             window.Show();
             window.Activate();
-            // 去掉和其他线程的输入链接
+           
             InteropMethods.AttachThreadInput(currentForegroundWindowThreadId, thisWindowThreadId, false);
 
-            // 用于踢掉其他的在上层的窗口
             if (window.Topmost != true)
             {
                 window.Topmost = true;
@@ -193,9 +174,6 @@ namespace HandyControl.Tools
             }
         }
 
-        /// <summary>
-        ///     开始使用触摸拖动窗口，在触摸抬起后自动结束
-        /// </summary>
-        public static void TouchDragMove(this Window window) => new TouchDragMoveWindowHelper(window).Start();
+        //public static void TouchDragMove(this Window window) => new TouchDragMoveWindowHelper(window).Start();
     }
 }

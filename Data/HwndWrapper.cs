@@ -3,7 +3,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace HandyControl.Data
+namespace Keytrap.Theme.Dark.Data
 {
     public abstract class HwndWrapper : DisposableObject
     {

@@ -1,9 +1,11 @@
 ﻿# --------------------------------------
 Basic\Brushes.xaml
 Basic\Converters.xaml
-
+Basic\Fonts.xaml
 # --------------------------------------
 Styles\Base\TextBoxBaseStyle.xaml
+Styles\Base\ButtonBaseStyle.xaml
 # --------------------------------------
 Styles\TextBox.xaml
+Styles\Button.xaml
 Styles\Window.xaml

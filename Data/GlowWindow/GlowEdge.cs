@@ -1,5 +1,4 @@
-﻿using HandyControl.Controls;
-
+﻿using Keytrap.Theme.Dark.Controls;
 using Keytrap.Theme.Dark.Tools.Interop;
 
 using System;
@@ -8,11 +7,11 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
 
-namespace HandyControl.Data
+namespace Keytrap.Theme.Dark.Data
 {
     internal class GlowEdge : HwndWrapper
     {
-        private const string GlowEdgeClassName = "HandyControlGlowEdge";
+        private const string GlowEdgeClassName = "Keytrap.Theme.DarkGlowEdge";
 
         private const int GlowDepth = 9;
 

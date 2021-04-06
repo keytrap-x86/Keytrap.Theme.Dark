@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace HandyControl.Tools.Converter
+namespace Keytrap.Theme.Dark.Tools.Converter
 {
     public class Boolean2StringConverter : IValueConverter
     {

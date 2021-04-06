@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace HandyControl.Tools.Converter
+namespace Keytrap.Theme.Dark.Tools.Converter
 {
     public class BorderClipConverter : IMultiValueConverter
     {

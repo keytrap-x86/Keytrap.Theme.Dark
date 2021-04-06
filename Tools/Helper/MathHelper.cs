@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HandyControl.Expression.Drawing
+namespace Keytrap.Theme.Dark.Tools.Helper
 {
     internal static class MathHelper
     {

@@ -1,4 +1,4 @@
-﻿namespace HandyControl.Data
+﻿namespace Keytrap.Theme.Dark.Data
 {
     internal enum GlowBitmapPart
     {

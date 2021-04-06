@@ -1,8 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--#region Style-->
-
-    <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
+    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type Button}">
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
@@ -16,7 +15,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Grid
                         x:Name="root"
                         Width="{TemplateBinding Width}"
@@ -26,14 +25,13 @@
                         <Border
                             x:Name="normalBorder"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderBrush="{StaticResource ControlBorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="4" />
 
                         <!--  styling border-brush and background-color for MouseOver state  -->
                         <Border
                             x:Name="hoverBorder"
-                            Background="{DynamicResource ControlHoveredBackgroundBrush}"
                             BorderBrush="{DynamicResource ControlHoveredBorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
@@ -47,15 +45,11 @@
                             CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
                             Opacity="0" />
 
-                        <!--  TextBox uses a ScrollViewer named PART_ContentHost as its content-presenter  -->
-                        <ScrollViewer
-                            x:Name="PART_ContentHost"
+                      
+                        <ContentPresenter
                             Margin="2"
-                            Padding="{TemplateBinding Padding}"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Center"
-                            BorderThickness="0"
-                            IsTabStop="False"
                             TextElement.Foreground="{TemplateBinding Foreground}" />
 
                         <!--  managing visual states to change controls styles on different states  -->
@@ -85,14 +79,22 @@
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
-                                        <ColorAnimation Duration="0" To="{DynamicResource ControlDisabledBackgroundColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).Color"/>
-                                        <ColorAnimation Duration="0" To="{DynamicResource ControlDisabledBorderColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).Color"/>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlDisabledBackgroundColor}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlDisabledBorderColor}" />
+                                        </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="ReadOnly">
                                     <Storyboard>
-                                        <ColorAnimation Duration="0" To="{DynamicResource ControlReadOnlyBackgroundColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).Color"/>
-                                        <ColorAnimation Duration="0" To="{DynamicResource ControlReadOnlyBorderColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).Color"/>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlReadOnlyBackgroundColor}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlReadOnlyBorderColor}" />
+                                        </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -134,34 +136,12 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground">
-                                <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource ControlDisabledForegroundColor}" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Background">
-                                <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource ControlDisabledBackgroundColor}" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsReadOnly" Value="True">
-                            <Setter Property="Foreground">
-                                <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource ControlReadOnlyForegroundColor}" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Background">
-                                <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource ControlReadOnlyBackgroundColor}" />
-                                </Setter.Value>
-                            </Setter>
+                            <Setter Property="Foreground" Value="{DynamicResource ControlDisabledForegroundBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource ControlDisabledBackgroundBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
-    <!--#endregion-->
 </ResourceDictionary>

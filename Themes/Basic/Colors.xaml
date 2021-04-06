@@ -37,23 +37,23 @@
     <Color x:Key="ControlFocusedForegroundColor">#686868</Color>
     <Color x:Key="ControlHoveredForegroundColor">#686868</Color>
     <Color x:Key="ControlReadOnlyForegroundColor">#bebcbe</Color>
-    <Color x:Key="ControlDisabledForegroundColor">#686868</Color>
+    <Color x:Key="ControlDisabledForegroundColor">#bebcbe</Color>
 
 
     <!--  Background  -->
     <Color x:Key="ControlBackgroundColor">#303339</Color>
-    <Color x:Key="ControlFocusedBackgroundColor">#fdfdff</Color>
-    <Color x:Key="ControlHoveredBackgroundColor">#fafafc</Color>
-    <Color x:Key="ControlReadOnlyBackgroundColor">#f2f2f4</Color>
-    <Color x:Key="ControlDisabledBackgroundColor">#efeff2</Color>
+    <Color x:Key="ControlFocusedBackgroundColor">#303339</Color>
+    <Color x:Key="ControlHoveredBackgroundColor">#383b42</Color>
+    <Color x:Key="ControlReadOnlyBackgroundColor">#202327</Color>
+    <Color x:Key="ControlDisabledBackgroundColor">#202327</Color>
 
 
     <!--  Border  -->
     <Color x:Key="ControlBorderColor">#202020</Color>
     <Color x:Key="ControlFocusedBorderColor">#0080DB</Color>
     <Color x:Key="ControlHoveredBorderColor">#0080DB</Color>
-    <Color x:Key="ControlReadOnlyBorderColor">#74C0FC</Color>
-    <Color x:Key="ControlDisabledBorderColor">#A5D8FF</Color>
+    <Color x:Key="ControlReadOnlyBorderColor">#303339</Color>
+    <Color x:Key="ControlDisabledBorderColor">#303339</Color>
 
     <!--#endregion-->
 

@@ -1,7 +1,7 @@
-﻿using HandyControl.Tools;
-using HandyControl.Tools.Extension;
-
+﻿
 using Keytrap.Theme.Dark.Data;
+using Keytrap.Theme.Dark.Tools.Extension;
+using Keytrap.Theme.Dark.Tools.Helper;
 using Keytrap.Theme.Dark.Tools.Interop;
 
 using System;
@@ -68,14 +68,14 @@ namespace Keytrap.Theme.Dark.Controls
 
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
             "ShowNonClientArea", typeof(bool), typeof(Window),
-            new PropertyMetadata(ValueBoxes.TrueBox, OnShowNonClientAreaChanged));
+            new PropertyMetadata(true, OnShowNonClientAreaChanged));
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
-            "ShowTitle", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.TrueBox));
+            "ShowTitle", typeof(bool), typeof(Window), new PropertyMetadata(true));
 
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
             "IsFullScreen", typeof(bool), typeof(Window),
-            new PropertyMetadata(ValueBoxes.FalseBox, OnIsFullScreenChanged));
+            new PropertyMetadata(false, OnIsFullScreenChanged));
 
         private bool _isFullScreen;
 
@@ -206,7 +206,7 @@ namespace Keytrap.Theme.Dark.Controls
         public bool IsFullScreen
         {
             get => (bool)GetValue(IsFullScreenProperty);
-            set => SetValue(IsFullScreenProperty, ValueBoxes.BooleanBox(value));
+            set => SetValue(IsFullScreenProperty, value);
         }
 
         public object NonClientAreaContent
@@ -254,13 +254,13 @@ namespace Keytrap.Theme.Dark.Controls
         public bool ShowNonClientArea
         {
             get => (bool)GetValue(ShowNonClientAreaProperty);
-            set => SetValue(ShowNonClientAreaProperty, ValueBoxes.BooleanBox(value));
+            set => SetValue(ShowNonClientAreaProperty, value);
         }
 
         public bool ShowTitle
         {
             get => (bool)GetValue(ShowTitleProperty);
-            set => SetValue(ShowTitleProperty, ValueBoxes.BooleanBox(value));
+            set => SetValue(ShowTitleProperty, value);
         }
 
         private static void OnShowNonClientAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -323,7 +323,7 @@ namespace Keytrap.Theme.Dark.Controls
                 _tempWindowStyle = WindowStyle;
                 _tempResizeMode = ResizeMode;
                 WindowStyle = WindowStyle.None;
-                //下面三行不能改变，就是故意的
+               
                 WindowState = WindowState.Maximized;
                 WindowState = WindowState.Minimized;
                 WindowState = WindowState.Maximized;

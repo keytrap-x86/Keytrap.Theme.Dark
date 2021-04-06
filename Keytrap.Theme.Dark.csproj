@@ -61,10 +61,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Palettes\Eva.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Basic\Brushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -77,6 +73,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Basic\Fonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,7 +85,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\ButtonBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\TextBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,31 +125,6 @@
     <Compile Include="Controls\Window\GlowWindow.cs" />
     <Compile Include="Controls\Window\Window.cs" />
     <Compile Include="Data\DisposableObject.cs" />
-    <Compile Include="Data\Enum\BadgeStatus.cs" />
-    <Compile Include="Data\Enum\ChatMessageType.cs" />
-    <Compile Include="Data\Enum\ChatRoleType.cs" />
-    <Compile Include="Data\Enum\ColLayoutStatus.cs" />
-    <Compile Include="Data\Enum\DrawerShowMode.cs" />
-    <Compile Include="Data\Enum\EnumDataProvider.cs" />
-    <Compile Include="Data\Enum\ExpandMode.cs" />
-    <Compile Include="Data\Enum\HatchStyle.cs" />
-    <Compile Include="Data\Enum\HitMode.cs" />
-    <Compile Include="Data\Enum\ImageCodecFlags.cs" />
-    <Compile Include="Data\Enum\InfoType.cs" />
-    <Compile Include="Data\Enum\IpType.cs" />
-    <Compile Include="Data\Enum\MouseHookMessageType.cs" />
-    <Compile Include="Data\Enum\NotifyIconInfoType.cs" />
-    <Compile Include="Data\Enum\PlacementType.cs" />
-    <Compile Include="Data\Enum\ResultType.cs" />
-    <Compile Include="Data\Enum\ShowAnimation.cs" />
-    <Compile Include="Data\Enum\SideMenuItemRole.cs" />
-    <Compile Include="Data\Enum\SkinType.cs" />
-    <Compile Include="Data\Enum\StepStatus.cs" />
-    <Compile Include="Data\Enum\StrokePosition.cs" />
-    <Compile Include="Data\Enum\TextType.cs" />
-    <Compile Include="Data\Enum\TitlePlacementType.cs" />
-    <Compile Include="Data\Enum\TransitionMode.cs" />
-    <Compile Include="Data\Enum\VisualWrapping.cs" />
     <Compile Include="Data\GlowWindow\ChangeScope.cs" />
     <Compile Include="Data\GlowWindow\GlowBitmap.cs" />
     <Compile Include="Data\GlowWindow\GlowBitmapPart.cs" />
@@ -150,60 +133,12 @@
     <Compile Include="Data\HwndWrapper.cs" />
     <Compile Include="Data\ResourceToken.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
-    <Compile Include="Expression\Drawing\BezierCurveFlattener.cs" />
-    <Compile Include="Expression\Drawing\CommonExtensions.cs" />
-    <Compile Include="Expression\Drawing\ExceptionStringTable.cs" />
-    <Compile Include="Expression\Drawing\GeometryHelper.cs" />
-    <Compile Include="Expression\Drawing\MarchLocation.cs" />
-    <Compile Include="Expression\Drawing\MarchStopReason.cs" />
-    <Compile Include="Expression\Drawing\MathHelper.cs" />
-    <Compile Include="Expression\Drawing\PathFigureHelper.cs" />
-    <Compile Include="Expression\Drawing\PathGeometryHelper.cs" />
-    <Compile Include="Expression\Drawing\PathSegmentData.cs" />
-    <Compile Include="Expression\Drawing\PathSegmentHelper.cs" />
-    <Compile Include="Expression\Drawing\PolylineData.cs" />
-    <Compile Include="Expression\Drawing\PolylineHelper.cs" />
-    <Compile Include="Expression\Drawing\RandomEngine.cs" />
-    <Compile Include="Expression\Drawing\SimpleSegment.cs" />
     <Compile Include="Helpers\GeometryHelper.cs" />
-    <Compile Include="Interactivity\AdornerContainer.cs" />
-    <Compile Include="Interactivity\AttachableCollection!1.cs" />
-    <Compile Include="Interactivity\Behavior\Behavior!1.cs" />
-    <Compile Include="Interactivity\Behavior\Behavior.cs" />
-    <Compile Include="Interactivity\Behavior\BehaviorCollection.cs" />
-    <Compile Include="Interactivity\Behavior\FluidMoveBehavior.cs" />
-    <Compile Include="Interactivity\Behavior\FluidMoveBehaviorBase.cs" />
-    <Compile Include="Interactivity\Behavior\MouseDragElementBehavior.cs" />
-    <Compile Include="Interactivity\Behavior\MouseDragElementBehaviorEx.cs" />
     <Compile Include="Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="Interactivity\Commands\ControlCommands.cs" />
     <Compile Include="Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="Interactivity\Commands\PushMainWindow2TopCommand.cs" />
     <Compile Include="Interactivity\Commands\ShutdownAppCommand.cs" />
-    <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
-    <Compile Include="Interactivity\EventToCommand.cs" />
-    <Compile Include="Interactivity\EventTrigger.cs" />
-    <Compile Include="Interactivity\EventTriggerBase!1.cs" />
-    <Compile Include="Interactivity\EventTriggerBase.cs" />
-    <Compile Include="Interactivity\ExceptionStringTable.cs" />
-    <Compile Include="Interactivity\ExtendedVisualStateManager.cs" />
-    <Compile Include="Interactivity\FluidMoveScope.cs" />
-    <Compile Include="Interactivity\IAttachedObject.cs" />
-    <Compile Include="Interactivity\IEventArgsConverter.cs" />
-    <Compile Include="Interactivity\Interaction.cs" />
-    <Compile Include="Interactivity\InvokeCommandAction.cs" />
-    <Compile Include="Interactivity\NameResolvedEventArgs.cs" />
-    <Compile Include="Interactivity\NameResolver.cs" />
-    <Compile Include="Interactivity\PreviewInvokeEventArgs.cs" />
-    <Compile Include="Interactivity\RoutedEventTrigger.cs" />
-    <Compile Include="Interactivity\TagType.cs" />
-    <Compile Include="Interactivity\TransitionEffect.cs" />
-    <Compile Include="Interactivity\TriggerAction!1.cs" />
-    <Compile Include="Interactivity\TriggerAction.cs" />
-    <Compile Include="Interactivity\TriggerActionCollection.cs" />
-    <Compile Include="Interactivity\TriggerBase.cs" />
-    <Compile Include="Interactivity\TriggerCollection.cs" />
-    <Compile Include="Interactivity\TypeConstraintAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -230,12 +165,10 @@
     <Compile Include="Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <Compile Include="Tools\Converter\BorderClipConverter.cs" />
-    <Compile Include="Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="Tools\Converter\Color2ChannelAConverter.cs" />
     <Compile Include="Tools\Converter\Color2HexStrConverter.cs" />
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
-    <Compile Include="Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
     <Compile Include="Tools\Converter\Object2BooleanConverter.cs" />
     <Compile Include="Tools\Converter\Object2StringConverter.cs" />
@@ -246,33 +179,18 @@
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="Tools\Converter\TreeViewItemMarginConverter.cs" />
-    <Compile Include="Tools\Extension\ColLayout.cs" />
-    <Compile Include="Tools\Extension\ColorExtension.cs" />
-    <Compile Include="Tools\Extension\DependencyObjectExtension.cs" />
-    <Compile Include="Tools\Extension\EnumerableExtension.cs" />
-    <Compile Include="Tools\Extension\FrameworkElementExtension.cs" />
-    <Compile Include="Tools\Extension\StringExtension.cs" />
     <Compile Include="Tools\Extension\UIElementExtension.cs" />
     <Compile Include="Tools\Extension\ValueExtension.cs" />
+    <Compile Include="Tools\Helper\DpiHelper.cs" />
+    <Compile Include="Tools\Helper\MathHelper.cs" />
+    <Compile Include="Tools\Helper\ResourceHelper.cs" />
+    <Compile Include="Tools\Helper\ScreenHelper.cs" />
+    <Compile Include="Tools\Helper\VisualHelper.cs" />
     <Compile Include="Tools\Interop\Handle\BitmapHandle.cs" />
     <Compile Include="Tools\Interop\Handle\CommonHandles.cs" />
     <Compile Include="Tools\Interop\Handle\HandleCollector.cs" />
     <Compile Include="Tools\Interop\Handle\IconHandle.cs" />
     <Compile Include="Tools\Interop\Handle\SafeFileMappingHandle.cs" />
-    <Compile Include="Tools\Helper\AnimationHelper.cs" />
-    <Compile Include="Tools\Helper\ArithmeticHelper.cs" />
-    <Compile Include="Tools\Helper\ColorHelper.cs" />
-    <Compile Include="Tools\Helper\DesignerHelper.cs" />
-    <Compile Include="Tools\Helper\DpiHelper.cs" />
-    <Compile Include="Tools\Helper\IconHelper.cs" />
-    <Compile Include="Tools\Helper\InputClickHelper.cs" />
-    <Compile Include="Tools\Helper\ResourceHelper.cs" />
-    <Compile Include="Tools\Helper\ScreenHelper.cs" />
-    <Compile Include="Tools\Helper\SecurityHelper.cs" />
-    <Compile Include="Tools\Helper\TokenizerHelper.cs" />
-    <Compile Include="Tools\Helper\TouchDragMoveWindowHelper.cs" />
-    <Compile Include="Tools\Helper\ValidateHelper.cs" />
-    <Compile Include="Tools\Helper\VisualHelper.cs" />
     <Compile Include="Tools\Helper\WindowHelper.cs" />
     <Compile Include="Tools\Interop\InteropMethods.cs" />
     <Compile Include="Tools\Interop\InteropValues.cs" />
@@ -339,6 +257,7 @@
     <Resource Include="Resources\Images\GlowWindow\topleft.png" />
     <Resource Include="Resources\Images\GlowWindow\topright.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>$(ProjectDir)Themes\XamlCombine.exe $(ProjectDir)Themes\XamlCombine.txt $(ProjectDir)Themes\Theme.xaml</PreBuildEvent>

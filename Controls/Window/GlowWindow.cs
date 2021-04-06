@@ -1,7 +1,6 @@
-﻿using HandyControl.Data;
-using HandyControl.Expression.Drawing;
-using HandyControl.Tools;
-
+﻿
+using Keytrap.Theme.Dark.Data;
+using Keytrap.Theme.Dark.Tools.Helper;
 using Keytrap.Theme.Dark.Tools.Interop;
 
 using System;
@@ -14,9 +13,9 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace HandyControl.Controls
+namespace Keytrap.Theme.Dark.Controls
 {
-    public class GlowWindow : Keytrap.Theme.Dark.Controls.Window
+    public class GlowWindow : Window
     {
         internal int DeferGlowChangesCount;
 
