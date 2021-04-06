@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <Color x:Key="PrimaryLightColor">#5F8AFA</Color>
+    <Color x:Key="PrimaryColor">#2C5FF7</Color>
+    <Color x:Key="PrimaryDarkColor">#2048D4</Color>
+
+    <Color x:Key="WarningLightColor">#FFBC47</Color>
+    <Color x:Key="WarningColor">#FF9D0A</Color>
+    <Color x:Key="WarningDarkColor">#DB7D07</Color>
+
+    <Color x:Key="ErrorLightColor">#FF786B</Color>
+    <Color x:Key="ErrorColor">#FF3A3A</Color>
+    <Color x:Key="ErrorDarkColor">#DB2A39</Color>
+
+    <Color x:Key="InfoLightColor">#3FC7FF</Color>
+    <Color x:Key="InfoColor">#00A5FF</Color>
+    <Color x:Key="InfoDarkColor">#0080DB</Color>
+
+    <Color x:Key="SuccessLightColor">#ADD540</Color>
+    <Color x:Key="SuccessColor">#86BA0D</Color>
+    <Color x:Key="SuccessDarkColor">#6E9F09</Color>
+
+    <Color x:Key="PrimaryTextColor">#bebcbe</Color>
+    <Color x:Key="SecondaryTextColor">#757575</Color>
+    <Color x:Key="ThirdlyTextColor">#bdbdbd</Color>
+
+    <Color x:Key="BackgroundDarkColor">#141617</Color>
+    <Color x:Key="BackgroundColor">#23272A</Color>
+    <Color x:Key="BackgroundLightColor">#32383d</Color>
+
+
+    <!--#region Control Properties Colors-->
+
+    <!--  Foreground  -->
+    <Color x:Key="ControlForegroundColor">#bebcbe</Color>
+    <Color x:Key="ControlFocusedForegroundColor">#686868</Color>
+    <Color x:Key="ControlHoveredForegroundColor">#686868</Color>
+    <Color x:Key="ControlReadOnlyForegroundColor">#bebcbe</Color>
+    <Color x:Key="ControlDisabledForegroundColor">#686868</Color>
+
+
+    <!--  Background  -->
+    <Color x:Key="ControlBackgroundColor">#303339</Color>
+    <Color x:Key="ControlFocusedBackgroundColor">#fdfdff</Color>
+    <Color x:Key="ControlHoveredBackgroundColor">#fafafc</Color>
+    <Color x:Key="ControlReadOnlyBackgroundColor">#f2f2f4</Color>
+    <Color x:Key="ControlDisabledBackgroundColor">#efeff2</Color>
+
+
+    <!--  Border  -->
+    <Color x:Key="ControlBorderColor">#202020</Color>
+    <Color x:Key="ControlFocusedBorderColor">#0080DB</Color>
+    <Color x:Key="ControlHoveredBorderColor">#0080DB</Color>
+    <Color x:Key="ControlReadOnlyBorderColor">#74C0FC</Color>
+    <Color x:Key="ControlDisabledBorderColor">#A5D8FF</Color>
+
+    <!--#endregion-->
+
+</ResourceDictionary>

@@ -33,18 +33,25 @@ namespace Keytrap.Theme.Dark.Controls.WaterMark
             IsClipEnabled = true;
 
             if (watermark is string)
-                watermark = new TextBlock
+            {
+                if(adornedElement is TextBox textBox)
                 {
-                    Text = watermark.ToString(),
-                    Opacity = 0.5,
-                    FontSize = 14,
-                    Margin = Margin = new Thickness(Control.Padding.Left + 5, Control.Padding.Top,
-                        Control.Padding.Right + 15, Control.Padding.Bottom),
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    TextTrimming = TextTrimming.CharacterEllipsis,
-                    Foreground = Application.Current.Resources.MergedDictionaries[0]["BrushForeground"] as Brush
-                };
+                    watermark = new TextBlock
+                    {
+                        Text = watermark.ToString(),
+                        Opacity = 0.5,
+                        FontSize = textBox.FontSize,
+                        Margin = new Thickness(Control.Padding.Left + 5,
+                                                   Control.Padding.Top,
+                                                   Control.Padding.Right,
+                                                   Control.Padding.Bottom),
+                        HorizontalAlignment = textBox.HorizontalContentAlignment,
+                        VerticalAlignment = textBox.VerticalContentAlignment,
+                        TextTrimming = TextTrimming.CharacterEllipsis,
+                        Foreground = textBox.Foreground
+                    };
+                }
+            }
 
             _contentPresenter = new ContentPresenter
             {

@@ -64,10 +64,13 @@ namespace Keytrap.Theme.Dark.Controls.WaterMark
 
             switch (d)
             {
-                case TextBox _:
-                case PasswordBox _:
-                    control.GotKeyboardFocus += Control_GotKeyboardFocus;
-                    control.LostKeyboardFocus += Control_Loaded;
+                case TextBox textBox:
+                    textBox.TextChanged += TextBox_TextChanged;
+                    break;
+                case PasswordBox passwordBox:
+                    passwordBox.PasswordChanged += PasswordBox_PasswordChanged;
+                    //control.GotKeyboardFocus += Control_GotKeyboardFocus;
+                    //control.LostKeyboardFocus += Control_Loaded;
                     break;
                 case ComboBox box:
                     control.GotKeyboardFocus += Control_GotKeyboardFocus;
@@ -86,6 +89,24 @@ namespace Keytrap.Theme.Dark.Controls.WaterMark
                     break;
                 }
             }
+        }
+
+        private static void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var control = (Control)sender;
+            if (ShouldShowWatermark(control))
+                ShowWatermark(control);
+            else
+                RemoveWatermark(control);
+        }
+
+        private static void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var control = (Control)sender;
+            if (ShouldShowWatermark(control))
+                ShowWatermark(control);
+            else
+                RemoveWatermark(control);
         }
 
         /// <summary>
@@ -124,7 +145,8 @@ namespace Keytrap.Theme.Dark.Controls.WaterMark
         private static void Control_Loaded(object sender, RoutedEventArgs e)
         {
             var control = (Control) sender;
-            if (ShouldShowWatermark(control)) ShowWatermark(control);
+            if (ShouldShowWatermark(control)) 
+                ShowWatermark(control);
         }
 
         /// <summary>
@@ -273,10 +295,10 @@ namespace Keytrap.Theme.Dark.Controls.WaterMark
                 case ComboBox box:
                     return box.SelectedItem == null;
                 //return (c as ComboBox).Text == string.Empty;
-                case TextBoxBase _:
-                    return (c as TextBox)?.Text == string.Empty;
+                case TextBox textBox:
+                    return string.IsNullOrEmpty(textBox.Text);
                 case PasswordBox passwordBox:
-                    return passwordBox.Password == string.Empty;
+                    return string.IsNullOrEmpty(passwordBox.Password);
                 case ItemsControl control:
                     return control.Items.Count == 0;
                 default:

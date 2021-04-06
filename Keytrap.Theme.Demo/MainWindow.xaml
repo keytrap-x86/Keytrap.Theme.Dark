@@ -1,91 +1,143 @@
-﻿<kt:DarkWindow
+﻿<hc:GlowWindow
+    xmlns:hc="clr-namespace:HandyControl.Controls;assembly=Keytrap.Theme.Dark"
     x:Class="Keytrap.Theme.Demo.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dark="clr-namespace:Keytrap.Theme.Dark;assembly=Keytrap.Theme.Dark"
     xmlns:kt="clr-namespace:Keytrap.Theme.Dark.Controls;assembly=Keytrap.Theme.Dark"
-    xmlns:waterMark="clr-namespace:Keytrap.Theme.Dark.Controls.WaterMark;assembly=Keytrap.Theme.Dark"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wm="clr-namespace:Keytrap.Theme.Dark.Controls.WaterMark;assembly=Keytrap.Theme.Dark"
     Title="Keytrap's Dark Theme for WPF"
+    Style="{StaticResource WindowGlow}"
     Width="970"
-    Height="562"
+    Height="540"
     Icon="Medias/kt_d.png"
-    Style="{StaticResource DarkWindowStyle}"
+    Topmost="True"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <StackPanel Margin="15">
-        <TextBlock
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Text="TextBlock"
-            TextWrapping="Wrap" />
+    <Grid>
+        <DockPanel>
+            <TextBlock
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Top"
+                FontSize="26"
+                FontWeight="Bold"
+                Foreground="#2C5FF7"
+                Text="Keytrap's Dark Theme" />
 
-        <ComboBox
-            Width="230"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            waterMark:WatermarkService.Watermark="ComboBox with watermark !"
-            Text="ComboBox" />
+            <Border
+                Margin="15,25,15,15"
+               
+                BorderThickness="2"
+                CornerRadius="4"
+                DockPanel.Dock="Left">
+                <ListBox Padding="5" Cursor="Hand">
+                    <ListBoxItem>
+                        <DockPanel>
+                            <Image
+                                Height="24"
+                                Margin="0,0,20,0"
+                                Source="Medias/MenuIcons/icons8-bouton-2-32.png" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontWeight="SemiBold"
+                                Text="Buttons" />
+                        </DockPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <DockPanel>
+                            <Image
+                                Height="24"
+                                Margin="0,0,20,0"
+                                Source="Medias/MenuIcons/icons8-texte-32.png" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontWeight="SemiBold"
+                                Text="TextBoxes" />
+                        </DockPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <DockPanel>
+                            <Image
+                                Height="24"
+                                Margin="0,0,20,0"
+                                Source="Medias/MenuIcons/icons8-interrupteur-on-32.png" />
+                            <TextBlock
+                                Margin="0,0,5,0"
+                                VerticalAlignment="Center"
+                                FontWeight="SemiBold"
+                                Text="ToggleButtons" />
+                        </DockPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <DockPanel>
+                            <Image
+                                Height="24"
+                                Margin="0,0,20,0"
+                                Source="Medias/MenuIcons/icons8-indicateur-de-progression-32.png" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontWeight="SemiBold"
+                                Text="ProgressBars" />
+                        </DockPanel>
+                    </ListBoxItem>
+
+                </ListBox>
+            </Border>
+            <Border
+                Margin="15,25,15,15"
+                BorderThickness="2"
+                CornerRadius="4"
+                DockPanel.Dock="Left">
+                <StackPanel
+                    Width="250"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+                    <TextBox
+                        Height="40" 
+                        wm:WatermarkService.Watermark="This is a watermark in a textbox" />
 
 
-        <GroupBox
-            Width="100"
-            Height="100"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            BorderThickness="2"
-            Foreground="{DynamicResource BrushBlue}"
-            Header="GroupBox" />
+                    <TextBlock Text="Username :" />
+                    <TextBox
+                       
+                        Height="40"
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Stretch"
+                        Text="Keytrap" />
 
-        <kt:TextSeparator
-            Width="354"
-            Margin="0,15,0,15"
-            HorizontalAlignment="Left"
-            Header="Text Separator" />
+                    <TextBlock Margin="0,10,0,0" Text="Password :" />
+                    <PasswordBox
+                        Height="40"
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Stretch"
+                        Password="KeytrapTheme" />
 
-        <ToggleButton Content="Toggle button" />
+                    <TextBox
+                        Height="40"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        wm:WatermarkService.Watermark="This is a watermark in a textbox">
+                        <TextBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="Cut" />
+                                <MenuItem Command="Copy" />
+                                <MenuItem Command="Paste" />
+                            </ContextMenu>
+                        </TextBox.ContextMenu>
+                    </TextBox>
 
-        <TabControl
-            Width="235"
-            Height="220"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top">
-            <TabItem Header="TabItem">
-                <CheckBox
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="CheckBox1" />
-            </TabItem>
-            <TabItem Header="TabItem">
-                <CheckBox
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="CheckBox2" />
-            </TabItem>
-        </TabControl>
-
-        <StackPanel
-            Margin="10"
-            VerticalAlignment="Bottom"
-            Orientation="Horizontal">
-            <Button
-                Width="100"
-                Content="Button"
-                Foreground="{DynamicResource BrushGreen}" />
-            <TextBox Width="250" waterMark:WatermarkService.Watermark="Textbox with watermark !" />
-
-            <Button
-                Width="100"
-                Content="Button"
-                Foreground="{DynamicResource BrushYellow}" />
-            <Button
-                Width="100"
-                Content="Button"
-                Foreground="{DynamicResource BrushRed}" />
-            <Button
-                Width="100"
-                Content="Button"
-                Foreground="{DynamicResource BrushBlue}" />
-        </StackPanel>
-
-    </StackPanel>
-</kt:DarkWindow>
+                    <Button
+                        Height="40"
+                        Margin="0,10,0,0"
+                        Content="Save" />
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</hc:GlowWindow>

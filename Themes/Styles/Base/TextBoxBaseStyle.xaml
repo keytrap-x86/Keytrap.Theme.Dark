@@ -1,0 +1,175 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region Style-->
+
+    <!--  every TextBox with property Style="{DynamicResource TextBoxBaseStyle}" will use this style  -->
+    <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid
+                        x:Name="root"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}">
+                        <!--  main border, styling the border-brush and background for Normal state  -->
+
+                        <Border
+                            x:Name="normalBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{StaticResource ControlBorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4" />
+
+                        <!--  styling border-brush and background-color for MouseOver state  -->
+                        <Border
+                            x:Name="hoverBorder"
+                            BorderBrush="{DynamicResource ControlHoveredBorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
+                            Opacity="0" />
+
+                        <!--  styling border-brush and background-color for Focused state  -->
+                        <Border
+                            x:Name="focusBorder"
+                            BorderBrush="{DynamicResource ControlFocusedBorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
+                            Opacity="0" />
+
+                        <!--  TextBox uses a ScrollViewer named PART_ContentHost as its content-presenter  -->
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Margin="2"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            BorderThickness="0"
+                            IsTabStop="False"
+                            TextElement.Foreground="{TemplateBinding Foreground}" />
+
+                        <!--  managing visual states to change controls styles on different states  -->
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            BeginTime="00:00:00.000"
+                                            Storyboard.TargetName="hoverBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="1"
+                                            To="0"
+                                            Duration="00:00:00.200" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            BeginTime="00:00:00.000"
+                                            Storyboard.TargetName="hoverBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="0"
+                                            To="1"
+                                            Duration="00:00:00.200" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlDisabledBackgroundBrush}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlDisabledBorderBrush}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="ReadOnly">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlReadOnlyBackgroundBrush}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource ControlReadOnlyBorderBrush}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            BeginTime="00:00:00.000"
+                                            Storyboard.TargetName="focusBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="0"
+                                            To="1"
+                                            Duration="00:00:00.200" />
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                                FillBehavior="HoldEnd"
+                                                Storyboard.TargetName="focusBorder"
+                                                Storyboard.TargetProperty="BorderThickness"
+                                                From="1,1,1,1"
+                                                To="2,2,2,2"
+                                                Duration="00:00:00.300" />
+                                        </Storyboard>
+
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            BeginTime="00:00:00.000"
+                                            Storyboard.TargetName="focusBorder"
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="1"
+                                            To="0"
+                                            Duration="00:00:00.200" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource ControlDisabledForegroundBrush}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource ControlDisabledBackgroundBrush}" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsReadOnly" Value="True">
+                            <Setter Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource ControlReadOnlyForegroundBrush}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource ControlReadOnlyBackgroundBrush}" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--#endregion-->
+</ResourceDictionary>

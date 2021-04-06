@@ -2,12 +2,13 @@
     x:Class="Keytrap.Theme.Demo.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Keytrap.Theme.Demo"
+    xmlns:themes="clr-namespace:Keytrap.Theme.Dark.Themes;assembly=Keytrap.Theme.Dark"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Keytrap.Theme.Dark;component/Themes/Generic.xaml" />
+                <themes:SharedResourceDictionary Source="pack://application:,,,/Keytrap.Theme.Dark;component/Themes/SkinDark.xaml" />
+                <themes:SharedResourceDictionary Source="pack://application:,,,/Keytrap.Theme.Dark;component/Themes/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
