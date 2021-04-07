@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 
-namespace Keytrap.Theme.Dark.Tools
+namespace Keytrap.Theme.Dark.Helpers
 {
     public class DesignerHelper
     {

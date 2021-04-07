@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Keytrap.Theme.Dark.Data.Enum;
+
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -14,6 +17,11 @@ namespace Keytrap.Theme.Dark.Tools.Helper
 
         public static List<string> GetStringList(params string[] keyArr) => keyArr.Select(key => Application.Current.TryFindResource(key) as string).ToList();
 
+
+        public static ResourceDictionary GetSkin(SkinType skin) => new()
+        {
+            Source = new Uri($"pack://application:,,,/Keytrap.Theme.Dark;component/Themes/Skin{skin}.xaml")
+        };
 
         public static T GetResource<T>(string key)
         {

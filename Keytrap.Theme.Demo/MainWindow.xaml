@@ -1,16 +1,15 @@
 ﻿<kt:GlowWindow
     x:Class="Keytrap.Theme.Demo.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:kt="clr-namespace:Keytrap.Theme.Dark.Controls;assembly=Keytrap.Theme.Dark"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wm="clr-namespace:Keytrap.Theme.Dark.Controls.WaterMark;assembly=Keytrap.Theme.Dark"
-    xmlns:kt="clr-namespace:Keytrap.Theme.Dark.Controls;assembly=Keytrap.Theme.Dark"
     Title="Keytrap's Dark Theme for WPF"
     Width="970"
     Height="540"
     Icon="Medias/kt_d.png"
-    ResizeMode="CanMinimize"
     Style="{StaticResource GlowWindow}"
     Topmost="True"
     WindowStartupLocation="CenterScreen"
@@ -96,8 +95,10 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
-                    <TextBox Height="40" wm:WatermarkService.Watermark="This is a watermark in a textbox" IsEnabled="False" />
-                   
+                    <TextBox
+                        Height="40"
+                        wm:WatermarkService.Watermark="This is a watermark in a textbox" IsReadOnly="True" />
+
 
                     <TextBlock Text="Username :" />
                     <TextBox

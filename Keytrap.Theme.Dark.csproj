@@ -81,7 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\SkinDark.xaml">
+    <Page Include="Themes\SkinDefault.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,9 +122,11 @@
     <Compile Include="Controls\WindowControlButton.xaml.cs">
       <DependentUpon>WindowControlButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Window\BlurWindow.cs" />
     <Compile Include="Controls\Window\GlowWindow.cs" />
     <Compile Include="Controls\Window\Window.cs" />
     <Compile Include="Data\DisposableObject.cs" />
+    <Compile Include="Data\Enum\SkinType.cs" />
     <Compile Include="Data\GlowWindow\ChangeScope.cs" />
     <Compile Include="Data\GlowWindow\GlowBitmap.cs" />
     <Compile Include="Data\GlowWindow\GlowBitmapPart.cs" />
@@ -132,7 +134,10 @@
     <Compile Include="Data\GlowWindow\GlowEdge.cs" />
     <Compile Include="Data\HwndWrapper.cs" />
     <Compile Include="Data\ResourceToken.cs" />
+    <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Helpers\DesignerHelper.cs" />
     <Compile Include="Helpers\GeometryHelper.cs" />
     <Compile Include="Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="Interactivity\Commands\ControlCommands.cs" />
@@ -157,7 +162,6 @@
     </Compile>
     <Compile Include="Themes\SharedResourceDictionnary.cs" />
     <Compile Include="Themes\Theme.cs" />
-    <Compile Include="Tools.cs" />
     <Compile Include="Tools\Converter\Boolean2BooleanReConverter.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />

@@ -1,4 +1,4 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:converter="clr-namespace:Keytrap.Theme.Dark.Tools.Converter" xmlns:themes="clr-namespace:Keytrap.Theme.Dark.Themes" xmlns:kt="clr-namespace:Keytrap.Theme.Dark.Controls">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:converter="clr-namespace:Keytrap.Theme.Dark.Tools.Converter" xmlns:themes="clr-namespace:Keytrap.Theme.Dark.Themes" xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:kt="clr-namespace:Keytrap.Theme.Dark.Controls">
   <converter:Boolean2BooleanReConverter x:Key="Boolean2BooleanReConverter" />
   <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter" />
   <converter:BooleanArr2VisibilityConverter x:Key="BooleanArr2VisibilityConverter" />
@@ -61,28 +61,46 @@
   <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
     <Setter Property="SnapsToDevicePixels" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
-    <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+    <Setter Property="Background">
+      <Setter.Value>
+        <SolidColorBrush Color="{DynamicResource ControlBackgroundColor}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Foreground">
+      <Setter.Value>
+        <SolidColorBrush Color="{DynamicResource ControlForegroundColor}" />
+      </Setter.Value>
+    </Setter>
     <Setter Property="Padding" Value="5" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="HorizontalContentAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="BorderThickness" Value="1" />
-    <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}" />
+    <Setter Property="BorderBrush">
+      <Setter.Value>
+        <SolidColorBrush Color="{DynamicResource ControlBorderBrushColor}" />
+      </Setter.Value>
+    </Setter>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type TextBox}">
           <Grid x:Name="root" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-            <!--  main border, styling the border-brush and background for Normal state  -->
             <Border x:Name="normalBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4" />
-            <!--  styling border-brush and background-color for MouseOver state  -->
-            <Border x:Name="hoverBorder" Background="{DynamicResource ControlHoveredBackgroundBrush}" BorderBrush="{DynamicResource PrimaryBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0" />
-            <!--  styling border-brush and background-color for Focused state  -->
-            <Border x:Name="focusBorder" BorderBrush="{DynamicResource PrimaryBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0" />
-            <!--  TextBox uses a ScrollViewer named PART_ContentHost as its content-presenter  -->
+            <Border x:Name="hoverBorder" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0">
+              <Border.Background>
+                <SolidColorBrush Color="{DynamicResource ControlHoveredBackgroundColor}" />
+              </Border.Background>
+              <Border.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource PrimaryColor}" />
+              </Border.BorderBrush>
+            </Border>
+            <Border x:Name="focusBorder" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0">
+              <Border.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource PrimaryColor}" />
+              </Border.BorderBrush>
+            </Border>
             <ScrollViewer x:Name="PART_ContentHost" Margin="2" Padding="{TemplateBinding Padding}" HorizontalAlignment="Stretch" VerticalAlignment="Center" BorderThickness="0" IsTabStop="False" TextElement.Foreground="{TemplateBinding Foreground}" />
-            <!--  managing visual states to change controls styles on different states  -->
             <VisualStateManager.VisualStateGroups>
               <VisualStateGroup x:Name="CommonStates">
                 <VisualState x:Name="Normal">
@@ -97,14 +115,14 @@
                 </VisualState>
                 <VisualState x:Name="Disabled">
                   <Storyboard>
-                    <ColorAnimation Duration="0" To="{DynamicResource ControlDisabledBackgroundColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).Color" />
-                    <ColorAnimation Duration="0" To="{DynamicResource ControlDisabledBorderColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).Color" />
+                    <ColorAnimation Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).Color" To="{DynamicResource ControlDisabledBackgroundColor}" Duration="0" />
+                    <ColorAnimation Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).Color" To="{DynamicResource ControlDisabledBorderColor}" Duration="0" />
                   </Storyboard>
                 </VisualState>
                 <VisualState x:Name="ReadOnly">
                   <Storyboard>
-                    <ColorAnimation Duration="0" To="{DynamicResource ControlReadOnlyBackgroundColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).Color" />
-                    <ColorAnimation Duration="0" To="{DynamicResource ControlReadOnlyBorderColor}" Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).Color" />
+                    <ColorAnimation Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.Background).Color" To="{DynamicResource ControlReadOnlyBackgroundColor}" Duration="0" />
+                    <ColorAnimation Storyboard.TargetName="normalBorder" Storyboard.TargetProperty="(Border.BorderBrush).Color" To="{DynamicResource ControlReadOnlyBorderColor}" Duration="0" />
                   </Storyboard>
                 </VisualState>
               </VisualStateGroup>
@@ -367,5 +385,8 @@
     <Setter Property="ActiveGlowColor" Value="{DynamicResource PrimaryColor}" />
     <Setter Property="InactiveGlowColor" Value="{DynamicResource ControlBorderColor}" />
     <Setter Property="BorderThickness" Value="0" />
+  </Style>
+  <Style x:Key="WindowBlur" BasedOn="{StaticResource WindowWin10}" TargetType="kt:BlurWindow">
+    <Setter Property="Background" Value="Transparent" />
   </Style>
 </ResourceDictionary>

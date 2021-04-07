@@ -1,8 +1,6 @@
 ﻿
 using Keytrap.Theme.Dark.Controls;
-using Keytrap.Theme.Dark.Tools;
 
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,56 +13,6 @@ namespace Keytrap.Theme.Dark.Themes
 {
     public partial class Generic
     {
-
-        public Generic()
-        {
-            if (DesignerHelper.IsInDesignMode)
-            {
-                MergedDictionaries.Add(new ResourceDictionary
-                {
-                    Source = new Uri("pack://application:,,,/Keytrap.Theme.Dark;component/Themes/SkinDefault.xaml")
-                });
-                MergedDictionaries.Add(new ResourceDictionary
-                {
-                    Source = new Uri("pack://application:,,,/Keytrap.Theme.Dark;component/Themes/Generic.xaml")
-                });
-            }
-            else
-            {
-                UpdateResource();
-            }
-        }
-
-        private Uri _source;
-
-        public new Uri Source
-        {
-            get => DesignerHelper.IsInDesignMode ? null : _source;
-            set => _source = value;
-        }
-
-        public string Name { get; set; }
-
-        public virtual ResourceDictionary GetTheme() => new ResourceDictionary
-        {
-            Source = new Uri("pack://application:,,,/Keytrap.Theme.Dark;component/Themes/Generic.xaml")
-        };
-
-        private void UpdateResource()
-        {
-            if (DesignerHelper.IsInDesignMode) 
-                return;
-
-            //MergedDictionaries.Clear();
-            //MergedDictionaries.Add(GetSkin());
-           // MergedDictionaries.Add(GetTheme());
-        }
-
-        private ResourceDictionary GetSkin() => new ResourceDictionary
-        {
-            Source = new Uri("pack://application:,,,/Keytrap.Theme.Dark;component/Themes/SkinDefault.xaml")
-        };
-
         private void GrdDragForm_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (!(System.Windows.Window.GetWindow(sender as Grid) is Window window))
