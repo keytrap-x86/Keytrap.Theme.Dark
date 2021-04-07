@@ -2,9 +2,9 @@
     x:Class="Keytrap.Theme.Demo.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="clr-namespace:System.ComponentModel;assembly=PresentationFramework"
     xmlns:kt="clr-namespace:Keytrap.Theme.Dark.Controls;assembly=Keytrap.Theme.Dark"
     xmlns:themes="clr-namespace:Keytrap.Theme.Dark.Themes;assembly=Keytrap.Theme.Dark"
-    xmlns:d="clr-namespace:System.ComponentModel;assembly=PresentationFramework"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

@@ -34,7 +34,7 @@
                         <Border
                             x:Name="hoverBorder"
                             Background="{DynamicResource ControlHoveredBackgroundBrush}"
-                            BorderBrush="{DynamicResource ControlHoveredBorderBrush}"
+                            BorderBrush="{DynamicResource PrimaryBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
                             Opacity="0" />
@@ -42,7 +42,7 @@
                         <!--  styling border-brush and background-color for Focused state  -->
                         <Border
                             x:Name="focusBorder"
-                            BorderBrush="{DynamicResource ControlFocusedBorderBrush}"
+                            BorderBrush="{DynamicResource PrimaryBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
                             Opacity="0" />

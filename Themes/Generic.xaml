@@ -528,7 +528,7 @@
                                         FocusBrush="{StaticResource BrushBlackLight}"
                                         FontFamily="Segoe MDL2 Assets"
                                         FontSize="10"
-                                        Foreground="{StaticResource BrushForeground}" 
+                                        Foreground="{StaticResource BrushForeground}"
                                         Text="&#xE949;" />
                                     <controls:WindowControlButton
                                         x:Name="BtnMaximize"
