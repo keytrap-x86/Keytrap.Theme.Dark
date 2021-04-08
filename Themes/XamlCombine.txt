@@ -2,10 +2,13 @@
 Basic\Brushes.xaml
 Basic\Converters.xaml
 Basic\Fonts.xaml
+Basic\Effects.xaml
 # --------------------------------------
 Styles\Base\TextBoxBaseStyle.xaml
 Styles\Base\ButtonBaseStyle.xaml
+Styles\Base\ContextMenuBaseStyle.xaml 
 # --------------------------------------
 Styles\TextBox.xaml
 Styles\Button.xaml
 Styles\Window.xaml
+Styles\ContextMenu.xaml

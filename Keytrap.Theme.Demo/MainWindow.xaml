@@ -119,13 +119,6 @@
                         Margin="0,10,0,0"
                         HorizontalAlignment="Stretch"
                         wm:WatermarkService.Watermark="This is a watermark in a textbox">
-                        <TextBox.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Command="Cut" />
-                                <MenuItem Command="Copy" />
-                                <MenuItem Command="Paste" />
-                            </ContextMenu>
-                        </TextBox.ContextMenu>
                     </TextBox>
 
                     <Button
