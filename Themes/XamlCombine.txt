@@ -6,9 +6,9 @@ Basic\Effects.xaml
 # --------------------------------------
 Styles\Base\TextBoxBaseStyle.xaml
 Styles\Base\ButtonBaseStyle.xaml
-Styles\Base\ContextMenuBaseStyle.xaml 
+Styles\Base\MenuBaseStyle.xaml 
 # --------------------------------------
 Styles\TextBox.xaml
 Styles\Button.xaml
 Styles\Window.xaml
-Styles\ContextMenu.xaml
+Styles\Menu.xaml

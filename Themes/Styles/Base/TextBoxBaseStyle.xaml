@@ -27,15 +27,7 @@
                 <SolidColorBrush Color="{DynamicResource ControlBorderColor}" />
             </Setter.Value>
         </Setter>
-        <Setter Property="ContextMenu">
-            <Setter.Value>
-                <ContextMenu Style="{DynamicResource ContextMenuBaseStyle}">
-                    <MenuItem Command="Cut" />
-                    <MenuItem Command="Copy" />
-                    <MenuItem Command="Paste" />
-                </ContextMenu>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="ContextMenu" Value="{StaticResource DesignDefaultContextMenu}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">

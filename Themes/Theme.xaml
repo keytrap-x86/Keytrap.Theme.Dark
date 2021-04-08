@@ -155,7 +155,7 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ContextMenu}">
-          <Border x:Name="Border" Background="{DynamicResource LightBackgroundBrush}" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" Effect="{DynamicResource EffectShadow5}">
+          <Border x:Name="Border" Margin="15" Background="{DynamicResource ControlBackgroundBrush}" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" CornerRadius="4" Effect="{DynamicResource EffectShadow2}">
             <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
           </Border>
           <ControlTemplate.Triggers>
@@ -299,7 +299,36 @@
   <Style x:Key="WindowBlur" BasedOn="{StaticResource WindowWin10}" TargetType="kt:BlurWindow">
     <Setter Property="Background" Value="Transparent" />
   </Style>
-  <Style BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="{x:Type ContextMenu}" />
+  <ContextMenu x:Key="DesignDefaultContextMenu" Style="{StaticResource ContextMenuBaseStyle}">
+    <MenuItem Command="Cut" />
+    <MenuItem Command="Copy" />
+    <MenuItem Command="Paste" />
+    <Separator />
+    <MenuItem Command="SelectAll" />
+  </ContextMenu>
+  <Style TargetType="{x:Type MenuItem}">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type MenuItem}">
+          <Border x:Name="Bd" Uid="Border_38" Margin="10,5,10,5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="2" SnapsToDevicePixels="True">
+            <ContentPresenter x:Name="ContentPresenter" Uid="ContentPresenter_33" Grid.Column="1" Margin="10,6,10,6" Content="{TemplateBinding Header}" TextElement.Foreground="{DynamicResource ControlForegroundBrush}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Foreground" Value="{StaticResource ControlDisabledForegroundBrush}" />
+            </Trigger>
+            <Trigger Property="IsHighlighted" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource PrimaryBrush}" />
+              <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
+              <Setter Property="Foreground" Value="White" />
+              <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
   <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBox}">
     <Setter Property="SnapsToDevicePixels" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
@@ -324,15 +353,7 @@
         <SolidColorBrush Color="{DynamicResource ControlBorderColor}" />
       </Setter.Value>
     </Setter>
-    <Setter Property="ContextMenu">
-      <Setter.Value>
-        <ContextMenu Style="{DynamicResource ContextMenuBaseStyle}">
-          <MenuItem Command="Cut" />
-          <MenuItem Command="Copy" />
-          <MenuItem Command="Paste" />
-        </ContextMenu>
-      </Setter.Value>
-    </Setter>
+    <Setter Property="ContextMenu" Value="{StaticResource DesignDefaultContextMenu}" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type TextBox}">
