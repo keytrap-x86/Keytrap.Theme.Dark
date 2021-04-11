@@ -75,7 +75,7 @@
                             <Grid Effect="{DynamicResource EffectShadow3}">
                                 <Border
                                     x:Name="ShadowBorder"
-                                    Background="{DynamicResource DarkestBrush}"
+                                    Background="{Binding BackgroundBrush}"
                                     CornerRadius="4" />
 
                                 <ContentPresenter

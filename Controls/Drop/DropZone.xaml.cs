@@ -1,11 +1,8 @@
 ﻿using Keytrap.Theme.Dark.Tools.Extension;
 
 using System;
-using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Keytrap.Theme.Dark.Controls
@@ -15,31 +12,69 @@ namespace Keytrap.Theme.Dark.Controls
     /// </summary>
     public partial class DropZone
     {
-        #region DropZoneText
+        #region Events
 
-        public static readonly DependencyProperty DropZoneTextProperty =
-           DependencyProperty.Register("DropZoneText", typeof(string), typeof(DropZone), new PropertyMetadata("Click or drop files here"));
+        public event EventHandler<string[]> OnDisallowedFileExtensionsDragEnter;
 
-        public string DropZoneText
+        public event EventHandler<string[]> OnDisallowedFileExtensionsDragLeave;
+
+        public event EventHandler<string[]> OnAllowedFileExtensionsDraggedEnter;
+
+        public event EventHandler<string[]> OnAllowedFileExtensionsDraggedLeave;
+
+        #endregion Events
+
+        #region Text
+
+        public static readonly DependencyProperty TextProperty =
+           DependencyProperty.Register("Text", typeof(string), typeof(DropZone), new PropertyMetadata("Click or drop files here"));
+
+        public string Text
         {
-            get { return (string)GetValue(DropZoneTextProperty); }
-            set { SetValue(DropZoneTextProperty, value); }
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
 
-        #endregion DropZoneText
+        #endregion Text
 
-        #region DropZoneTextForeground
+        #region TextWhenAllowedExtension
 
-        public static readonly DependencyProperty DropZoneTextForegroundProperty =
-           DependencyProperty.Register("DropZoneTextForeground", typeof(Brush), typeof(DropZone), new PropertyMetadata(Brushes.DarkGray));
+        public static readonly DependencyProperty TextWhenAllowedExtensionProperty =
+           DependencyProperty.Register("TextWhenAllowedExtension", typeof(string), typeof(DropZone), new PropertyMetadata(null));
 
-        public Brush DropZoneTextForeground
+        public string TextWhenAllowedExtension
         {
-            get { return (Brush)GetValue(DropZoneTextForegroundProperty); }
-            set { SetValue(DropZoneTextForegroundProperty, value); }
+            get { return (string)GetValue(TextWhenAllowedExtensionProperty); }
+            set { SetValue(TextWhenAllowedExtensionProperty, value); }
         }
 
-        #endregion DropZoneTextForeground
+        #endregion TextWhenAllowedExtension
+
+        #region TextWhenDisallowedExtension
+
+        public static readonly DependencyProperty TextWhenDisallowedExtensionProperty =
+           DependencyProperty.Register("TextWhenDisallowedExtension", typeof(string), typeof(DropZone), new PropertyMetadata(null));
+
+        public string TextWhenDisallowedExtension
+        {
+            get { return (string)GetValue(TextWhenDisallowedExtensionProperty); }
+            set { SetValue(TextWhenDisallowedExtensionProperty, value); }
+        }
+
+        #endregion TextWhenDisallowedExtension
+
+        #region TextForeground
+
+        public static readonly DependencyProperty TextForegroundProperty =
+           DependencyProperty.Register("TextForeground", typeof(Brush), typeof(DropZone), new PropertyMetadata(Brushes.DarkGray));
+
+        public Brush TextForeground
+        {
+            get { return (Brush)GetValue(TextForegroundProperty); }
+            set { SetValue(TextForegroundProperty, value); }
+        }
+
+        #endregion TextForeground
 
         #region IsDragging
 
@@ -75,31 +110,25 @@ namespace Keytrap.Theme.Dark.Controls
 
         #endregion DraggedFilesHaveAllowedExtensions
 
-        #region Image
+        #region AllowedExtensions
 
-        public static readonly DependencyProperty ImageProperty =
-           DependencyProperty.Register("Image", typeof(ImageSource), typeof(DropZone), new PropertyMetadata(null));
+        public static readonly DependencyProperty AllowedExtensionsProperty =
+           DependencyProperty.Register("AllowedExtensions", typeof(string), typeof(DropZone), new PropertyMetadata("*"));
 
-        public ImageSource Image
+        public string AllowedExtensions
         {
-            get { return (ImageSource)GetValue(ImageProperty); }
-            set { SetValue(ImageProperty, value); }
+            get { return (string)GetValue(AllowedExtensionsProperty); }
+            set { SetValue(AllowedExtensionsProperty, value); }
         }
 
-        #endregion Image
+        #endregion AllowedExtensions
 
-        #region AllowedFileExtensions
+        #region Private
 
-        public static readonly DependencyProperty AllowedFileExtensionsProperty =
-           DependencyProperty.Register("AllowedFileExtensions", typeof(string), typeof(DropZone), new PropertyMetadata("*"));
+        private string[] DraggedFiles { get; set; }
+        private bool AreDraggedFilesAllowed { get; set; }
 
-        public string AllowedFileExtensions
-        {
-            get { return (string)GetValue(AllowedFileExtensionsProperty); }
-            set { SetValue(AllowedFileExtensionsProperty, value); }
-        }
-
-        #endregion AllowedFileExtensions
+        #endregion Private
 
         public DropZone()
         {
@@ -112,6 +141,11 @@ namespace Keytrap.Theme.Dark.Controls
             {
                 source.SetParentValue<Button>(IsDraggingProperty, false);
                 source.SetParentValue<Button>(DraggedFilesHaveAllowedExtensionsProperty, true);
+
+                if (AreDraggedFilesAllowed)
+                    OnAllowedFileExtensionsDraggedLeave?.Invoke(this, DraggedFiles);
+                else
+                    OnDisallowedFileExtensionsDragLeave?.Invoke(this, DraggedFiles);
             }
         }
 
@@ -119,12 +153,18 @@ namespace Keytrap.Theme.Dark.Controls
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop, true))
             {
-                var filenames = e.Data.GetData(DataFormats.FileDrop, true) as string[];
+                DraggedFiles = e.Data.GetData(DataFormats.FileDrop, true) as string[];
 
                 var source = e.OriginalSource as DependencyObject;
+                AreDraggedFilesAllowed = DoDraggedFilesHaveAllowedExtensions(DraggedFiles);
 
                 source.SetParentValue<Button>(IsDraggingProperty, true);
-                source.SetParentValue<Button>(DraggedFilesHaveAllowedExtensionsProperty, DoDraggedFilesHaveAllowedExtensions(filenames));
+                source.SetParentValue<Button>(DraggedFilesHaveAllowedExtensionsProperty, AreDraggedFilesAllowed);
+
+                if (AreDraggedFilesAllowed)
+                    OnAllowedFileExtensionsDraggedEnter?.Invoke(this, DraggedFiles);
+                else
+                    OnDisallowedFileExtensionsDragEnter?.Invoke(this, DraggedFiles);
             }
             else
             {
@@ -133,24 +173,34 @@ namespace Keytrap.Theme.Dark.Controls
             }
         }
 
-        private void DropZone_Drop(object sender, DragEventArgs e)
+        protected override void OnDrop(DragEventArgs e)
         {
             if (e.OriginalSource is DependencyObject source)
             {
                 source.SetParentValue<Button>(IsDraggingProperty, false);
                 source.SetParentValue<Button>(DraggedFilesHaveAllowedExtensionsProperty, true);
             }
+
+            if (!AreDraggedFilesAllowed)
+            {
+                e.Effects = DragDropEffects.None;
+                e.Handled = true;
+            }
+            else
+            {
+                base.OnDrop(e);
+            }
         }
 
         internal bool DoDraggedFilesHaveAllowedExtensions(string[] fileNames)
         {
-            if (AllowedFileExtensions.ToLower().Contains("*"))
+            if (AllowedExtensions.ToLower().Contains("*"))
                 return true;
 
             foreach (string filename in fileNames)
             {
                 // If at leats one of the current dragged files extension is not found in the allowed extensions array, we return false
-                if (AllowedFileExtensions.ToLower().Contains(System.IO.Path.GetExtension(filename)) == false)
+                if (AllowedExtensions.ToLower().Contains(System.IO.Path.GetExtension(filename).ToLower()) == false)
                 {
                     return false;
                 }

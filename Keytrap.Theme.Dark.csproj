@@ -146,11 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttachedProperties\InfoElement.cs" />
-    <Compile Include="Controls\ClipBorder.cs" />
-    <Compile Include="Controls\DarkWindow.cs" />
+    <Compile Include="Controls\Border\ClipBorder.cs" />
+    <Compile Include="Controls\Window\DarkWindow.cs" />
     <Compile Include="Controls\Drop\DropZone.xaml.cs">
       <DependentUpon>DropZone.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Border\NoGapBorder.cs" />
     <Compile Include="Controls\SpringPopup\PopupProperties.cs" />
     <Compile Include="Controls\SpringPopup\SpringPopup.xaml.cs">
       <DependentUpon>SpringPopup.xaml</DependentUpon>

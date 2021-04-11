@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Documents;
 using System.Windows.Media;
 
 namespace Keytrap.Theme.Dark.Controls
@@ -45,6 +42,39 @@ namespace Keytrap.Theme.Dark.Controls
             d.SetValue(SpringPopupProperty, value);
         }
 
+        #region PopupBackgroundBrush
+
+        /// <summary>
+        ///     SpringPopupBackgroundBrush Attached Dependency Property
+        /// </summary>
+        public static readonly DependencyProperty SpringPopupBackgroundBrushProperty = DependencyProperty.RegisterAttached(
+            "SpringPopupBackgroundBrush",
+            typeof(Brush),
+            typeof(SpringPopupService),
+            new FrameworkPropertyMetadata(new BrushConverter().ConvertFromString("#18191C")));
+
+        /// <summary>
+        ///     Gets the SpringPopupBackgroundBrush property.  This dependency property indicates the SpringPopupBackgroundBrush for the control.
+        /// </summary>
+        /// <param name="d"><see cref="DependencyObject" /> to get the property from</param>
+        /// <returns>The value of the SpringPopupBackgroundBrush property</returns>
+        public static Brush GetSpringPopupBackgroundBrush(DependencyObject d)
+        {
+            return (Brush)d.GetValue(SpringPopupBackgroundBrushProperty);
+        }
+
+        /// <summary>
+        ///     Sets the SpringPopupBackgroundBrush property.  This dependency property indicates the SpringPopupBackgroundBrush for the control.
+        /// </summary>
+        /// <param name="d"><see cref="DependencyObject" /> to set the property on</param>
+        /// <param name="value">value of the property</param>
+        public static void SetSpringPopupBackgroundBrush(DependencyObject d, Brush value)
+        {
+            d.SetValue(SpringPopupBackgroundBrushProperty, value);
+        }
+
+        #endregion PopupBackgroundBrush
+
         /// <summary>
         ///     Handles changes to the SpringPopup property.
         /// </summary>
@@ -52,7 +82,7 @@ namespace Keytrap.Theme.Dark.Controls
         /// <param name="e">A <see cref="DependencyPropertyChangedEventArgs" /> that contains the event data.</param>
         private static void OnSpringPopupChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var control = (Control)d;
+            var control = (UIElement)d;
 
             control.MouseEnter += (s, e) =>
            {
@@ -65,6 +95,7 @@ namespace Keytrap.Theme.Dark.Controls
 
                Popup = new SpringPopup
                {
+                   BackgroundBrush = control.GetValue(SpringPopupBackgroundBrushProperty) as Brush,
                    Content = content,
                    PopupAnimation = PopupAnimation.None,
                    PlacementTarget = control

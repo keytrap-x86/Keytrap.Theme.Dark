@@ -4,21 +4,21 @@
     <Color x:Key="PrimaryColor">#2C5FF7</Color>
     <Color x:Key="PrimaryDarkColor">#2048D4</Color>
 
-    <Color x:Key="WarningLightColor">#FFBC47</Color>
-    <Color x:Key="WarningColor">#FF9D0A</Color>
-    <Color x:Key="WarningDarkColor">#DB7D07</Color>
+    <Color x:Key="WarningLightColor">#fcc569</Color>
+    <Color x:Key="WarningColor">#fbb848</Color>
+    <Color x:Key="WarningDarkColor">#faab27</Color>
 
-    <Color x:Key="ErrorLightColor">#FF786B</Color>
-    <Color x:Key="ErrorColor">#FF3A3A</Color>
-    <Color x:Key="ErrorDarkColor">#DB2A39</Color>
+    <Color x:Key="ErrorLightColor">#f15757</Color>
+    <Color x:Key="ErrorColor">#f04747</Color>
+    <Color x:Key="ErrorDarkColor">#ed2828</Color>
 
-    <Color x:Key="InfoLightColor">#3FC7FF</Color>
-    <Color x:Key="InfoColor">#00A5FF</Color>
-    <Color x:Key="InfoDarkColor">#0080DB</Color>
+    <Color x:Key="InfoLightColor">#809ad0</Color>
+    <Color x:Key="InfoColor">#6786c7</Color>
+    <Color x:Key="InfoDarkColor">#4e72be</Color>
 
-    <Color x:Key="SuccessLightColor">#82E01D</Color>
-    <Color x:Key="SuccessColor">#65C015</Color>
-    <Color x:Key="SuccessDarkColor">#4CA10E</Color>
+    <Color x:Key="SuccessLightColor">#59c192</Color>
+    <Color x:Key="SuccessColor">#43B581</Color>
+    <Color x:Key="SuccessDarkColor">#3a9c6f</Color>
 
     <Color x:Key="PrimaryTextColor">#bebcbe</Color>
     <Color x:Key="SecondaryTextColor">#757575</Color>
@@ -31,7 +31,7 @@
     <!--#region Control Properties Colors-->
 
     <!--  Foreground  -->
-    <Color x:Key="ControlForegroundColor">#bebcbe</Color>
+    <Color x:Key="ControlForegroundColor">#fff</Color>
     <Color x:Key="ControlFocusedForegroundColor">#686868</Color>
     <Color x:Key="ControlHoveredForegroundColor">#686868</Color>
     <Color x:Key="ControlReadOnlyForegroundColor">#bebcbe</Color>
