@@ -3,11 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:themes="clr-namespace:Keytrap.Theme.Dark.Themes">
 
-
     <ResourceDictionary.MergedDictionaries>
         <themes:SharedResourceDictionary Source="pack://application:,,,/Keytrap.Theme.Dark;component/Themes/Styles/Base/MenuBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
 
     <ContextMenu x:Key="DesignDefaultContextMenu" Style="{StaticResource ContextMenuBaseStyle}">
         <MenuItem Command="Cut" />
@@ -19,6 +17,7 @@
 
     <Style TargetType="{x:Type MenuItem}">
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
@@ -31,21 +30,22 @@
                         BorderThickness="0"
                         CornerRadius="2"
                         SnapsToDevicePixels="True">
-                        <ContentPresenter
-                            x:Name="ContentPresenter"
-                            Uid="ContentPresenter_33"
-                            Grid.Column="1"
-                            Margin="10,6,10,6"
-                            Content="{TemplateBinding Header}"
-                            TextElement.Foreground="{DynamicResource ControlForegroundBrush}"
-                            ContentSource="Header"
-                            RecognizesAccessKey="True"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <StackPanel>
+                            <ContentPresenter
+                                x:Name="ContentPresenter"
+                                Uid="ContentPresenter_33"
+                                Grid.Column="1"
+                                Margin="10,6,10,6"
+                                Content="{TemplateBinding Header}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{StaticResource ControlDisabledForegroundBrush}" />
+                            <Setter TargetName="ContentPresenter" Property="Opacity" Value="0.4" />
                         </Trigger>
+
                         <Trigger Property="IsHighlighted" Value="True">
                             <Setter TargetName="Bd" Property="Background" Value="{StaticResource PrimaryBrush}" />
                             <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
@@ -57,5 +57,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>

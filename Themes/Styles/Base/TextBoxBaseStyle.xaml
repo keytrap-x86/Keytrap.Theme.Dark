@@ -27,7 +27,7 @@
                 <SolidColorBrush Color="{DynamicResource ControlBorderColor}" />
             </Setter.Value>
         </Setter>
-        <Setter Property="ContextMenu" Value="{StaticResource DesignDefaultContextMenu}"/>
+        <Setter Property="ContextMenu" Value="{StaticResource DesignDefaultContextMenu}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">

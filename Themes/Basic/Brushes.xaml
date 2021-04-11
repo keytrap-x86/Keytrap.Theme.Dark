@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
+    <SolidColorBrush x:Key="DarkestBrush" o:Freeze="True" Color="{DynamicResource DarkestColor}" />
+
     <SolidColorBrush
         x:Key="LightPrimaryBrush"
         o:Freeze="True"
@@ -159,6 +161,4 @@
         x:Key="ControlFocusedBackgroundBrush"
         o:Freeze="True"
         Color="{DynamicResource ControlFocusedBackgroundColor}" />
-
-
 </ResourceDictionary>

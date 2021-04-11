@@ -3,15 +3,30 @@
     <Style x:Key="ButtonBaseStyle" TargetType="{x:Type Button}">
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="OverridesDefaultStyle" Value="true" />
-        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource ControlBackgroundColor}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource ControlForegroundColor}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource ControlBorderColor}" />
+            </Setter.Value>
+        </Setter>
         <Setter Property="Padding" Value="5" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Height" Value="34" />
+        <Setter Property="Width" Value="80" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -28,30 +43,35 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="4" />
 
-                        <!--  styling border-brush and background-color for MouseOver state  -->
                         <Border
                             x:Name="hoverBorder"
-                            BorderBrush="{DynamicResource ControlHoveredBorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
-                            Opacity="0" />
+                            Opacity="0">
+                            <Border.Background>
+                                <SolidColorBrush Color="{DynamicResource ControlHoveredBackgroundColor}" />
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource PrimaryColor}" />
+                            </Border.BorderBrush>
+                        </Border>
 
-                        <!--  styling border-brush and background-color for Focused state  -->
                         <Border
                             x:Name="focusBorder"
-                            BorderBrush="{DynamicResource ControlFocusedBorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}"
-                            Opacity="0" />
-
+                            Opacity="0">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource PrimaryColor}" />
+                            </Border.BorderBrush>
+                        </Border>
 
                         <ContentPresenter
                             Margin="2"
-                            HorizontalAlignment="Stretch"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             TextElement.Foreground="{TemplateBinding Foreground}" />
 
-                        <!--  managing visual states to change controls styles on different states  -->
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal">
@@ -116,7 +136,6 @@
                                                 To="2,2,2,2"
                                                 Duration="00:00:0.400" />
                                         </Storyboard>
-
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Unfocused">

@@ -37,6 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\DiscordUpload\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\DiscordUpload\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Design\Microsoft.Xaml.Behaviors.Design.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -53,6 +59,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\Drop\DropZone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SpringPopup\SpringPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TextSeparator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +111,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\TextBlockBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\TextBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TextBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +148,14 @@
     <Compile Include="AttachedProperties\InfoElement.cs" />
     <Compile Include="Controls\ClipBorder.cs" />
     <Compile Include="Controls\DarkWindow.cs" />
+    <Compile Include="Controls\Drop\DropZone.xaml.cs">
+      <DependentUpon>DropZone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpringPopup\PopupProperties.cs" />
+    <Compile Include="Controls\SpringPopup\SpringPopup.xaml.cs">
+      <DependentUpon>SpringPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpringPopup\SpringPopupService.cs" />
     <Compile Include="Controls\TextSeparator.xaml.cs">
       <DependentUpon>TextSeparator.xaml</DependentUpon>
     </Compile>
@@ -184,6 +214,7 @@
     <Compile Include="Tools\Converter\Color2ChannelAConverter.cs" />
     <Compile Include="Tools\Converter\Color2HexStrConverter.cs" />
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
+    <Compile Include="Tools\Converter\DivideByTwoConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
     <Compile Include="Tools\Converter\Object2BooleanConverter.cs" />
@@ -216,6 +247,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="readme.md" />
     <Resource Include="Fonts\whitneybold.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

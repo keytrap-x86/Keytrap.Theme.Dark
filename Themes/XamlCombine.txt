@@ -5,10 +5,12 @@ Basic\Fonts.xaml
 Basic\Effects.xaml
 # --------------------------------------
 Styles\Base\TextBoxBaseStyle.xaml
+Styles\Base\TextBlockBaseStyle.xaml
 Styles\Base\ButtonBaseStyle.xaml
 Styles\Base\MenuBaseStyle.xaml 
 # --------------------------------------
 Styles\TextBox.xaml
+Styles\TextBlock.xaml
 Styles\Button.xaml
 Styles\Window.xaml
 Styles\Menu.xaml

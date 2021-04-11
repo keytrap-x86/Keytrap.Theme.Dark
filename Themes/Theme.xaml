@@ -22,6 +22,7 @@
   <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter" />
   <converter:Object2StringConverter x:Key="Object2StringConverter" />
   <FontFamily x:Key="Whitney">pack://application,,,/Keytrap.Theme.Dark;Component/Fonts/#Whitney</FontFamily>
+  <SolidColorBrush x:Key="DarkestBrush" o:Freeze="True" Color="{DynamicResource DarkestColor}" />
   <SolidColorBrush x:Key="LightPrimaryBrush" o:Freeze="True" Color="{DynamicResource PrimaryLightColor}" />
   <SolidColorBrush x:Key="PrimaryBrush" o:Freeze="True" Color="{DynamicResource PrimaryColor}" />
   <SolidColorBrush x:Key="DarkPrimaryBrush" o:Freeze="True" Color="{DynamicResource PrimaryDarkColor}" />
@@ -63,30 +64,56 @@
   <DropShadowEffect x:Key="EffectShadow3" o:Freeze="True" BlurRadius="14" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="4.5" Color="{StaticResource EffectShadowColor}" />
   <DropShadowEffect x:Key="EffectShadow4" o:Freeze="True" BlurRadius="25" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="8" Color="{StaticResource EffectShadowColor}" />
   <DropShadowEffect x:Key="EffectShadow5" o:Freeze="True" BlurRadius="35" Direction="270" Opacity=".2" RenderingBias="Performance" ShadowDepth="13" Color="{StaticResource EffectShadowColor}" />
+  <Style x:Key="TextBlockBaseStyle" TargetType="{x:Type TextBlock}">
+    <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+  </Style>
   <Style x:Key="ButtonBaseStyle" TargetType="{x:Type Button}">
     <Setter Property="SnapsToDevicePixels" Value="true" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
-    <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Background">
+      <Setter.Value>
+        <SolidColorBrush Color="{DynamicResource ControlBackgroundColor}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Foreground">
+      <Setter.Value>
+        <SolidColorBrush Color="{DynamicResource ControlForegroundColor}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="BorderBrush">
+      <Setter.Value>
+        <SolidColorBrush Color="{DynamicResource ControlBorderColor}" />
+      </Setter.Value>
+    </Setter>
     <Setter Property="Padding" Value="5" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="Height" Value="34" />
+    <Setter Property="Width" Value="80" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="BorderThickness" Value="1" />
-    <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type Button}">
           <Grid x:Name="root" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
             <!--  main border, styling the border-brush and background for Normal state  -->
             <Border x:Name="normalBorder" Background="{TemplateBinding Background}" BorderBrush="{StaticResource ControlBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4" />
-            <!--  styling border-brush and background-color for MouseOver state  -->
-            <Border x:Name="hoverBorder" BorderBrush="{DynamicResource ControlHoveredBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0" />
-            <!--  styling border-brush and background-color for Focused state  -->
-            <Border x:Name="focusBorder" BorderBrush="{DynamicResource ControlFocusedBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0" />
-            <ContentPresenter Margin="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}" />
-            <!--  managing visual states to change controls styles on different states  -->
+            <Border x:Name="hoverBorder" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0">
+              <Border.Background>
+                <SolidColorBrush Color="{DynamicResource ControlHoveredBackgroundColor}" />
+              </Border.Background>
+              <Border.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource PrimaryColor}" />
+              </Border.BorderBrush>
+            </Border>
+            <Border x:Name="focusBorder" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding ElementName=normalBorder, Path=CornerRadius}" Opacity="0">
+              <Border.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource PrimaryColor}" />
+              </Border.BorderBrush>
+            </Border>
+            <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}" />
             <VisualStateManager.VisualStateGroups>
               <VisualStateGroup x:Name="CommonStates">
                 <VisualState x:Name="Normal">
@@ -155,7 +182,7 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ContextMenu}">
-          <Border x:Name="Border" Margin="15" Background="{DynamicResource ControlBackgroundBrush}" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" CornerRadius="4" Effect="{DynamicResource EffectShadow2}">
+          <Border x:Name="Border" Margin="15" Background="{DynamicResource DarkestBrush}" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" CornerRadius="4" Effect="{DynamicResource EffectShadow2}">
             <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
           </Border>
           <ControlTemplate.Triggers>
@@ -167,6 +194,18 @@
         </ControlTemplate>
       </Setter.Value>
     </Setter>
+  </Style>
+  <Style BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="{x:Type TextBlock}" />
+  <Style x:Key="HideTextBlockIfEmpty" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="{x:Type TextBlock}">
+    <Setter Property="Visibility" Value="Visible" />
+    <Style.Triggers>
+      <Trigger Property="Text" Value="">
+        <Setter Property="Visibility" Value="Collapsed" />
+      </Trigger>
+      <Trigger Property="Text" Value="{x:Null}">
+        <Setter Property="Visibility" Value="Collapsed" />
+      </Trigger>
+    </Style.Triggers>
   </Style>
   <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}" />
   <Style TargetType="Window">
@@ -308,15 +347,18 @@
   </ContextMenu>
   <Style TargetType="{x:Type MenuItem}">
     <Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="{DynamicResource ControlForegroundBrush}" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type MenuItem}">
           <Border x:Name="Bd" Uid="Border_38" Margin="10,5,10,5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="2" SnapsToDevicePixels="True">
-            <ContentPresenter x:Name="ContentPresenter" Uid="ContentPresenter_33" Grid.Column="1" Margin="10,6,10,6" Content="{TemplateBinding Header}" TextElement.Foreground="{DynamicResource ControlForegroundBrush}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            <StackPanel>
+              <ContentPresenter x:Name="ContentPresenter" Uid="ContentPresenter_33" Grid.Column="1" Margin="10,6,10,6" Content="{TemplateBinding Header}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            </StackPanel>
           </Border>
           <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-              <Setter Property="Foreground" Value="{StaticResource ControlDisabledForegroundBrush}" />
+              <Setter TargetName="ContentPresenter" Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="IsHighlighted" Value="True">
               <Setter TargetName="Bd" Property="Background" Value="{StaticResource PrimaryBrush}" />
