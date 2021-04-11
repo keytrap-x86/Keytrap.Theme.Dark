@@ -151,14 +151,14 @@ namespace Keytrap.Theme.Dark.Controls
 
         private void DropZone_DragEnter(object sender, DragEventArgs e)
         {
+            var source = e.OriginalSource as DependencyObject;
+            source.SetParentValue<Button>(IsDraggingProperty, true);
             if (e.Data.GetDataPresent(DataFormats.FileDrop, true))
             {
                 DraggedFiles = e.Data.GetData(DataFormats.FileDrop, true) as string[];
 
-                var source = e.OriginalSource as DependencyObject;
                 AreDraggedFilesAllowed = DoDraggedFilesHaveAllowedExtensions(DraggedFiles);
 
-                source.SetParentValue<Button>(IsDraggingProperty, true);
                 source.SetParentValue<Button>(DraggedFilesHaveAllowedExtensionsProperty, AreDraggedFilesAllowed);
 
                 if (AreDraggedFilesAllowed)
@@ -168,6 +168,9 @@ namespace Keytrap.Theme.Dark.Controls
             }
             else
             {
+                source.SetParentValue<Button>(DraggedFilesHaveAllowedExtensionsProperty, false);
+
+                OnDisallowedFileExtensionsDragEnter?.Invoke(this, DraggedFiles);
                 e.Effects = DragDropEffects.None;
                 e.Handled = true;
             }
